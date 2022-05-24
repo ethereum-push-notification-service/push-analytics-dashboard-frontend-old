@@ -3,8 +3,6 @@ import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
-import { width } from '@mui/system'
-
 
 const Home = () => {
   return (
@@ -305,7 +303,15 @@ const Home = () => {
           </Grid>
         </Grid>
       </Container>
-
+      <Grid
+            item
+            lg={4}
+            md={6}
+            xl={3}
+            xs={12}
+          >
+          </Grid>
+          
     </Layout>
   )
 }
