@@ -3,6 +3,8 @@ import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
+import { width } from '@mui/system'
+
 
 const Home = () => {
   return (
@@ -17,22 +19,26 @@ const Home = () => {
                 flexDirection: 'column',
                 height: 160,
                 borderRadius: 5,
+                background: 'linear-gradient(90deg, #E52F71 10%, #860486 40%, #3EC3ED 90%)',
+                backgroundRepeat: "no-repeat",
+                width:"100%",
+                backgroundPositionY: "-110px",
               }}
             >
               <Typography
                 component="h2"
                 variant="h6"
-                color="primary"
+                color="white"
                 gutterBottom
                 textAlign='center'
               >
                 Number of Subscriptions
               </Typography>
 
-              <Typography component="p" variant="h4" align='center' mt="10px">
+              <Typography component="p" variant="h4" align='center' mt="10px" color="#8F8B8B">
                 1234
               </Typography>
-              <Typography color="text.secondary" sx={{ flex: 1 }} align='center' mt="20px">
+              <Typography color="#CAC2C2" sx={{ flex: 1 }} align='center' mt="20px">
                 in 24 hours
               </Typography>
             </Paper>
@@ -50,22 +56,26 @@ const Home = () => {
                 flexDirection: 'column',
                 height: 160,
                 borderRadius: 5,
+                background: 'linear-gradient(90deg, #E52F71 10%, #860486 40%, #3EC3ED 90%)',
+                backgroundRepeat: "no-repeat",
+                width:"100%",
+                backgroundPositionY: "-110px",
               }}
             >
               <Typography
                 component="h2"
                 variant="h6"
-                color="primary"
+                color="white"
                 gutterBottom
-                align='center'
+                textAlign='center'
               >
                 Number of Notifications
               </Typography>
 
-              <Typography component="p" variant="h4" align='center' mt="10px">
+              <Typography component="p" variant="h4" align='center' mt="10px" color="#8F8B8B">
                 1234
               </Typography>
-              <Typography color="text.secondary" sx={{ flex: 1 }}  align='center' mt="20px">
+              <Typography color="#CAC2C2" sx={{ flex: 1 }}  align='center' mt="20px">
                 in 24 hours
               </Typography>
             </Paper>
@@ -83,22 +93,27 @@ const Home = () => {
                 flexDirection: 'column',
                 height: 160,
                 borderRadius: 5,
+                background: 'linear-gradient(90deg, #E52F71 10%, #860486 40%, #3EC3ED 90%)',
+                backgroundRepeat: "no-repeat",
+                width:"100%",
+                backgroundPositionY: "-110px",
+                
               }}
             >
               <Typography
                 component="h2"
                 variant="h6"
-                color="primary"
+                color="white"
                 gutterBottom
-                align='center'
+                textAlign='center'
               >
                 $PUSH Trading Volume
               </Typography>
 
-              <Typography component="p" variant="h4" align='center' mt="10px">
+              <Typography component="p" variant="h4" align='center' mt="10px" color="#8F8B8B">
                 1234
               </Typography>
-              <Typography color="text.secondary" sx={{ flex: 1 }}  align='center' mt="20px">
+              <Typography color="#CAC2C2" sx={{ flex: 1 }}  align='center' mt="20px">
                 in 24 hours
               </Typography>
             </Paper>
@@ -112,8 +127,8 @@ const Home = () => {
           <Grid item xs={12} md={4} lg={3}>
             <Paper
               sx={{
-                display: 'block',
-                flexDirection: 'row',
+                display: 'flex',
+                flexDirection: 'column',
                 height: 100,
                 borderRadius: 5,
               }}
@@ -121,15 +136,14 @@ const Home = () => {
               <Typography
                 component="h2"
                 variant="h6"
-                color="primary"
-                gutterBottom
-                textAlign="left"
-                // eslint-disable-next-line react/jsx-no-duplicate-props
                 color="#8F8B8B"
+                gutterBottom
+                textAlign="center"
+                mt='10px'
               >
                 Total Users
               </Typography>
-              <Typography component="p" variant="h4" textAlign="right" color="#8F8B8B">
+              <Typography component="p" variant="h4" textAlign="center" color="#8F8B8B">
                 1234
               </Typography>
             </Paper>
@@ -154,12 +168,12 @@ const Home = () => {
                 variant="h6"
                 color="#8F8B8B"
                 gutterBottom
-                textAlign="left"
-                justifyContent=""
+                textAlign="center"
+                mt='10px'
               >
                 Number of Channels
               </Typography>
-              <Typography component="p" variant="h4" textAlign="right" color="#8F8B8B">
+              <Typography component="p" variant="h4" textAlign="center" color="#8F8B8B">
                 1234
               </Typography>
             </Paper>
@@ -169,7 +183,7 @@ const Home = () => {
 
       
 
-      <Container maxWidth="md" sx={{ m:4, mt: 4, mb: 4 }}>
+      <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={4} lg={3}>
             <Paper
@@ -177,11 +191,12 @@ const Home = () => {
                 bgcolor: '#E52F71',
                 display: 'flex',
                 flexDirection: 'column',
-                height: 160,
-                borderRadius: 12,
+                height: 120,
+                width: 120,
+                borderRadius: 5,
               }}
             >
-              <Typography component="p" variant="h4" color='white'  align='center'  marginTop="50px">
+              <Typography component="p" variant="h3" color='white'  align='center'  marginTop="10px">
                 6
               </Typography>
               <Typography
@@ -190,6 +205,7 @@ const Home = () => {
                 color='white'
                 gutterBottom
                 align='center'
+                marginTop="0px"
               >
                 Grants Given
               </Typography>
@@ -198,7 +214,7 @@ const Home = () => {
         </Grid>
       </Container>
 
-      <Container maxWidth="md" sx={{ m: 30, mt: 4, mb: 10 }}>
+      <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={4} lg={3}>
             <Paper
@@ -206,11 +222,12 @@ const Home = () => {
                 bgcolor: '#AA1DAA',
                 display: 'flex',
                 flexDirection: 'column',
-                height: 160,
-                borderRadius: 12,
+                height: 120,
+                width: 120,
+                borderRadius: 5,
               }}
             >
-              <Typography component="p" variant="h4" color='white'  align='center' marginTop="50px">
+              <Typography component="p" variant="h3" color='white'  align='center' marginTop="10px">
                 11
               </Typography>
               <Typography
@@ -228,7 +245,7 @@ const Home = () => {
       </Container>
 
 
-      <Container maxWidth="md" sx={{ m:4, mt: 4, mb: 4}}>
+      <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={4} lg={3}>
             <Paper
@@ -236,11 +253,12 @@ const Home = () => {
                 bgcolor: '#860486',
                 display: 'flex',
                 flexDirection: 'column',
-                height: 160,
-                borderRadius: 12,
+                height: 120,
+                width: 120,
+                borderRadius: 5,
               }}
             >
-              <Typography component="p" variant="h4" color='white'  align='center'  marginTop="50px">
+              <Typography component="p" variant="h3" color='white'  align='center'  marginTop="10px">
                 17
               </Typography>
               <Typography
@@ -258,7 +276,7 @@ const Home = () => {
       </Container>
 
 
-      <Container maxWidth="md" sx={{m: 30, mt: 4, mb: 10 }}>
+      <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={4} lg={3}>
             <Paper
@@ -266,11 +284,12 @@ const Home = () => {
                 bgcolor: '#3EC3ED',
                 display: 'flex',
                 flexDirection: 'column',
-                height: 160,
-                borderRadius: 12,
+                height: 120,
+                width: 120,
+                borderRadius: 5,
               }}
             >
-              <Typography component="p" variant="h4" color='white' align='center'  marginTop="50px">
+              <Typography component="p" variant="h3" color='white' align='center' marginTop="10px">
                 54
               </Typography>
               <Typography
