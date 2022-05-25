@@ -28,11 +28,12 @@ const GREY = {
   500_80: alpha('#919EAB', 0.8),
 };
 
+
 const PRIMARY = {
   lighter: '#E52F71',
   light: '#76B0F1',
   main: '#E52F71',
-  dark: '#103996',
+  dark: '#fff',
   darker: '#fff',
   contrastText: '#fff',
 };
@@ -47,7 +48,7 @@ const SECONDARY = {
 };
 
 const INFO = {
-  lighter: '#AA1DAA',
+  lighter: 'rgb(103, 76, 159)',
   light: '#74CAFF',
   main: '#1890FF',
   dark: '#fff',
@@ -91,7 +92,7 @@ const GRADIENTS = {
 };
 
 const CHART_COLORS = {
-  violet: ['#860486', '#AA1DAA', '#D0AEFF', '#F7D2FF'],
+  violet: ['#860486', 'rgb(103, 76, 159)', '#D0AEFF', '#F7D2FF'],
   blue: ['#3EC3ED', '#83CFFF', '#A5F3FF', '#CCFAFF'],
   green: ['#2CD9C5', '#60F1C8', '#A4F7CC', '#C0F2DC'],
   yellow: ['#860486', '#FFEF5A', '#FFF7AE', '#FFF3D6'],
@@ -111,7 +112,7 @@ const palette = {
   chart: CHART_COLORS,
   divider: GREY[500_24],
   text: { primary: GREY[800], secondary: GREY[600], disabled: GREY[500] },
-  background: { paper: '#fff', default: GREY[100], neutral: GREY[200] },
+  background: { paper: '#EFEFEF', default: GREY[100], neutral: GREY[200] },
   action: {
     active: GREY[600],
     hover: GREY[500_8],
