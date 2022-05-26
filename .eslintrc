@@ -24,6 +24,15 @@
       "impliedStrict": true
     }
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": [
+          "src"
+        ]
+      }
+    }
+  },
   "rules": {
     "no-shadow": 0,
     "no-console": 0,

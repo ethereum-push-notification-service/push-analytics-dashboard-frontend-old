@@ -4,7 +4,7 @@ import DashboardLayout from './layouts/dashboard';
 import LogoOnlyLayout from './layouts/LogoOnlyLayout';
 
 import Login from './pages/Login';
-import NotFound from './pages/Page404';
+import NotFound from './pages/not-found/Page404';
 import DashboardApp from './pages/DashboardApp';
 
 // ----------------------------------------------------------------------
