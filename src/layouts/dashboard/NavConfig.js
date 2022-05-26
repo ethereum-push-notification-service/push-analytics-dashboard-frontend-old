@@ -13,13 +13,13 @@ const navConfig = [
   },
 
   {
-    title: 'login',
+    title: 'Extra Page',
     path: '/login',
     icon: getIcon('eva:lock-fill'),
   },
 
   {
-    title: 'Not found',
+    title: 'Extra Page',
     path: '/404',
     icon: getIcon('eva:alert-triangle-fill'),
   },

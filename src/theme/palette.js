@@ -28,12 +28,13 @@ const GREY = {
   500_80: alpha('#919EAB', 0.8),
 };
 
+
 const PRIMARY = {
-  lighter: '#D1E9FC',
+  lighter: '#E52F71',
   light: '#76B0F1',
-  main: '#2065D1',
-  dark: '#103996',
-  darker: '#061B64',
+  main: '#E52F71',
+  dark: '#fff',
+  darker: '#fff',
   contrastText: '#fff',
 };
 
@@ -47,11 +48,11 @@ const SECONDARY = {
 };
 
 const INFO = {
-  lighter: '#D0F2FF',
+  lighter: 'rgb(103, 76, 159)',
   light: '#74CAFF',
   main: '#1890FF',
-  dark: '#0C53B7',
-  darker: '#04297A',
+  dark: '#fff',
+  darker: '#fff',
   contrastText: '#fff',
 };
 
@@ -65,20 +66,20 @@ const SUCCESS = {
 };
 
 const WARNING = {
-  lighter: '#FFF7CD',
+  lighter: '#860486',
   light: '#FFE16A',
   main: '#FFC107',
-  dark: '#B78103',
-  darker: '#7A4F01',
+  dark: '#fff',
+  darker: '#fff',
   contrastText: GREY[800],
 };
 
 const ERROR = {
-  lighter: '#FFE7D9',
+  lighter: '#3EC3ED',
   light: '#FFA48D',
   main: '#FF4842',
-  dark: '#B72136',
-  darker: '#7A0C2E',
+  dark: '#fff',
+  darker: '#fff',
   contrastText: '#fff',
 };
 
@@ -91,10 +92,10 @@ const GRADIENTS = {
 };
 
 const CHART_COLORS = {
-  violet: ['#826AF9', '#9E86FF', '#D0AEFF', '#F7D2FF'],
-  blue: ['#2D99FF', '#83CFFF', '#A5F3FF', '#CCFAFF'],
+  violet: ['#860486', 'rgb(103, 76, 159)', '#D0AEFF', '#F7D2FF'],
+  blue: ['#3EC3ED', '#83CFFF', '#A5F3FF', '#CCFAFF'],
   green: ['#2CD9C5', '#60F1C8', '#A4F7CC', '#C0F2DC'],
-  yellow: ['#FFE700', '#FFEF5A', '#FFF7AE', '#FFF3D6'],
+  yellow: ['#860486', '#FFEF5A', '#FFF7AE', '#FFF3D6'],
   red: ['#FF6C40', '#FF8F6D', '#FFBD98', '#FFF2D4'],
 };
 
@@ -111,7 +112,7 @@ const palette = {
   chart: CHART_COLORS,
   divider: GREY[500_24],
   text: { primary: GREY[800], secondary: GREY[600], disabled: GREY[500] },
-  background: { paper: '#fff', default: GREY[100], neutral: GREY[200] },
+  background: { paper: '#EFEFEF', default: GREY[100], neutral: GREY[200] },
   action: {
     active: GREY[600],
     hover: GREY[500_8],
