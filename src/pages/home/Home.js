@@ -15,7 +15,7 @@ const Home = () => {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Number of Subscripions" total={714000} icon={'ant-design:android-filled'} />
+            <AppWidgetSummary title="Number of Subscribers" total={714000} icon={'ant-design:user-outlined'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
@@ -23,7 +23,7 @@ const Home = () => {
               title="Number of Channels"
               total={1352831}
               color="info"
-              icon={'ant-design:apple-filled'}
+              icon={'ant-design:wechat-outlined'}
             />
           </Grid>
 
@@ -32,8 +32,16 @@ const Home = () => {
               title="Total Notifications"
               total={1723315}
               color="warning"
-              icon={'ant-design:windows-filled'}
+              icon={'ant-design:bell-filled'}
             />
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={3}>
+            <AppWidgetSummary title="$PUSH Trading Volume" total={234} color="error" icon={'ant-design:bug-filled'} />
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={3}>
+            <AppWidgetSummary title="Number of Subscripions" total={714000} icon={'ant-design:android-filled'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
@@ -84,10 +92,10 @@ const Home = () => {
             <AppCurrentVisits
               title="Total Users by Platform"
               chartData={[
-                { label: 'Browser', value: 4344 },
+                { label: 'dApp', value: 4344 },
                 { label: 'IOS', value: 5435 },
-                { label: 'Andriod', value: 1443 },
-                { label: 'Other', value: 4443 },
+                { label: 'Android', value: 1443 },
+                { label: 'Browser Extension', value: 4443 },
               ]}
               chartColors={[
                 theme.palette.chart.violet[0],
@@ -101,19 +109,13 @@ const Home = () => {
           <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits
               title="Total subscribers"
-              chartLabels={['01/01/2003', '02/01/2003', '03/01/2003', '04/01/2003', '05/01/2003', '06/01/2003']}
+              chartLabels={['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']}
               chartData={[
                 {
-                  name: 'Week',
+                  name: 'Total subscribers',
                   type: 'column',
                   fill: 'solid',
-                  data: [23, 11, 22, 27, 13, 22],
-                },
-                {
-                  name: 'Month',
-                  type: 'column',
-                  fill: 'solid',
-                  data: [44, 55, 41, 67, 22, 43],
+                  data: [23, 11, 22, 27, 13, 22, 15],
                 },
               ]}
             />
@@ -121,6 +123,7 @@ const Home = () => {
 
           <Grid item xs={12} md={6} lg={4}>
             <AppTrafficBySite
+              title="Governance"
               list={[
                 {
                   name: 'Grants Given',
