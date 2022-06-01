@@ -30,6 +30,8 @@ export default function DashboardApp() {
           Dashboard Analytics
         </Typography>
 
+
+          
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary title="Number of Subscripions" total={714000} icon={'ant-design:android-filled'} />
@@ -47,6 +49,15 @@ export default function DashboardApp() {
             <AppWidgetSummary title="$PUSH Trading Volume" total={234} color="error" icon={'ant-design:bug-filled'} />
           </Grid>
           
+          <Grid item xs={12} md={6} lg={12}>
+            <AppTrafficBySite
+            title="Top Channels on EPNS"
+              list={[
+                // ADD THE TOP CHANNELS SHOWN IN THE MOCKUP (AAVE, MAKER, ENS)
+              ]}
+            />
+          </Grid>
+
 
           <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits
@@ -92,10 +103,10 @@ export default function DashboardApp() {
             <AppCurrentVisits
               title="Total Users by Platform"
               chartData={[
-                { label: 'Browser', value: 4344 },
+                { label: 'dApp', value: 4344 },
                 { label: 'IOS', value: 5435 },
-                { label: 'Andriod', value: 1443 },
-                { label: 'Other', value: 4443 },
+                { label: 'Android', value: 1443 },
+                { label: 'Browser Extension', value: 4443 },
               ]}
               chartColors={[
                 theme.palette.chart.violet[0],
@@ -106,9 +117,9 @@ export default function DashboardApp() {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={8}>
+          <Grid item xs={12} md={6} lg={6}>
             <AppWebsiteVisits
-              title="Total subscribers"
+              title="Total Subscribers per week"
               chartLabels={[
                 '01/01/2003',
                 '02/01/2003',
@@ -124,18 +135,62 @@ export default function DashboardApp() {
                   fill: 'solid',
                   data: [23, 11, 22, 27, 13, 22],
                 },
+              ]}
+            />
+          </Grid>
+
+
+          <Grid item xs={12} md={6} lg={6}>
+            <AppWebsiteVisits
+              title="New Channels per week"
+              chartLabels={[
+                '01/01/2003',
+                '02/01/2003',
+                '03/01/2003',
+                '04/01/2003',
+                '05/01/2003',
+                '06/01/2003',
+              ]}
+              chartData={[
                 {
-                  name: 'Month',
+                  name: 'Week',
                   type: 'column',
                   fill: 'solid',
-                  data: [44, 55, 41, 67, 22, 43],
+                  data: [23, 11, 22, 27, 13, 22],
                 },
               ]}
             />
           </Grid>
 
+          <Grid item xs={12} md={6} lg={6}>
+            <AppWebsiteVisits
+              title="Total Notifications per week"
+              chartLabels={[
+                '01/01/2003',
+                '02/01/2003',
+                '03/01/2003',
+                '04/01/2003',
+                '05/01/2003',
+                '06/01/2003',
+              ]}
+              chartData={[
+                {
+                  name: 'Week',
+                  type: 'column',
+                  fill: 'solid',
+                  data: [23, 11, 22, 27, 13, 22],
+                },
+              ]}
+            />
+          </Grid>
+
+
+
+
+
           <Grid item xs={12} md={6} lg={4}>
             <AppTrafficBySite
+            title="Governance"
               list={[
                 {
                   name: 'Grants Given',
