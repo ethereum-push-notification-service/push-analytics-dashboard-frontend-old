@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/epns-analytics-dashboard-frontend/static/css/main.feeb957e.css",
+    "main.js": "/epns-analytics-dashboard-frontend/static/js/main.390cf099.js",
+    "static/js/932.6b64136e.chunk.js": "/epns-analytics-dashboard-frontend/static/js/932.6b64136e.chunk.js",
+    "static/js/357.3f28a0d5.chunk.js": "/epns-analytics-dashboard-frontend/static/js/357.3f28a0d5.chunk.js",
+    "static/js/277.538d73c0.chunk.js": "/epns-analytics-dashboard-frontend/static/js/277.538d73c0.chunk.js",
+    "static/js/787.1f78981d.chunk.js": "/epns-analytics-dashboard-frontend/static/js/787.1f78981d.chunk.js",
+    "static/js/723.ece40f25.chunk.js": "/epns-analytics-dashboard-frontend/static/js/723.ece40f25.chunk.js",
+    "static/js/727.49bfc62b.chunk.js": "/epns-analytics-dashboard-frontend/static/js/727.49bfc62b.chunk.js",
+    "static/js/626.d8c6739e.chunk.js": "/epns-analytics-dashboard-frontend/static/js/626.d8c6739e.chunk.js",
+    "static/js/930.c7fabbd0.chunk.js": "/epns-analytics-dashboard-frontend/static/js/930.c7fabbd0.chunk.js",
+    "index.html": "/epns-analytics-dashboard-frontend/index.html",
+    "main.feeb957e.css.map": "/epns-analytics-dashboard-frontend/static/css/main.feeb957e.css.map",
+    "main.390cf099.js.map": "/epns-analytics-dashboard-frontend/static/js/main.390cf099.js.map",
+    "932.6b64136e.chunk.js.map": "/epns-analytics-dashboard-frontend/static/js/932.6b64136e.chunk.js.map",
+    "357.3f28a0d5.chunk.js.map": "/epns-analytics-dashboard-frontend/static/js/357.3f28a0d5.chunk.js.map",
+    "277.538d73c0.chunk.js.map": "/epns-analytics-dashboard-frontend/static/js/277.538d73c0.chunk.js.map",
+    "787.1f78981d.chunk.js.map": "/epns-analytics-dashboard-frontend/static/js/787.1f78981d.chunk.js.map",
+    "723.ece40f25.chunk.js.map": "/epns-analytics-dashboard-frontend/static/js/723.ece40f25.chunk.js.map",
+    "727.49bfc62b.chunk.js.map": "/epns-analytics-dashboard-frontend/static/js/727.49bfc62b.chunk.js.map",
+    "626.d8c6739e.chunk.js.map": "/epns-analytics-dashboard-frontend/static/js/626.d8c6739e.chunk.js.map",
+    "930.c7fabbd0.chunk.js.map": "/epns-analytics-dashboard-frontend/static/js/930.c7fabbd0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.feeb957e.css",
+    "static/js/main.390cf099.js"
+  ]
+}
