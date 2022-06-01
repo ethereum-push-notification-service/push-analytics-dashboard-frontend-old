@@ -41,15 +41,6 @@ const Home = () => {
           <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary title="$PUSH Trading Volume" total={234} color="error" icon={'ant-design:bug-filled'} />
           </Grid>
-
-          <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Number of Subscripions" total={714000} icon={'ant-design:android-filled'} />
-          </Grid>
-
-          <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="$PUSH Trading Volume" total={234} color="error" icon={'ant-design:bug-filled'} />
-          </Grid>
-<<<<<<< HEAD:src/pages/DashboardApp.js
           
           <Grid item xs={12} md={6} lg={12}>
             <AppTrafficBySite
@@ -60,8 +51,6 @@ const Home = () => {
             />
           </Grid>
 
-=======
->>>>>>> main:src/pages/home/Home.js
 
           <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits
@@ -146,26 +135,13 @@ const Home = () => {
 
           <Grid item xs={12} md={6} lg={6}>
             <AppWebsiteVisits
-<<<<<<< HEAD:src/pages/DashboardApp.js
-              title="New Channels per week"
-              chartLabels={[
-                '01/01/2003',
-                '02/01/2003',
-                '03/01/2003',
-                '04/01/2003',
-                '05/01/2003',
-                '06/01/2003',
-              ]}
-=======
               title="Total subscribers"
               chartLabels={['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']}
->>>>>>> main:src/pages/home/Home.js
               chartData={[
                 {
                   name: 'Total subscribers',
                   type: 'column',
                   fill: 'solid',
-<<<<<<< HEAD:src/pages/DashboardApp.js
                   data: [23, 11, 22, 27, 13, 22],
                 },
               ]}
@@ -189,9 +165,6 @@ const Home = () => {
                   type: 'column',
                   fill: 'solid',
                   data: [23, 11, 22, 27, 13, 22],
-=======
-                  data: [23, 11, 22, 27, 13, 22, 15],
->>>>>>> main:src/pages/home/Home.js
                 },
               ]}
             />
@@ -203,11 +176,7 @@ const Home = () => {
 
           <Grid item xs={12} md={6} lg={4}>
             <AppTrafficBySite
-<<<<<<< HEAD:src/pages/DashboardApp.js
             title="Governance"
-=======
-              title="Governance"
->>>>>>> main:src/pages/home/Home.js
               list={[
                 {
                   name: 'Grants Given',
