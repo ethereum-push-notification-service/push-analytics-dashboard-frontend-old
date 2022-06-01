@@ -13,6 +13,8 @@ const Home = () => {
           Dashboard Analytics
         </Typography>
 
+
+          
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary title="Number of Subscribers" total={714000} icon={'ant-design:user-outlined'} />
@@ -39,14 +41,16 @@ const Home = () => {
           <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary title="$PUSH Trading Volume" total={234} color="error" icon={'ant-design:bug-filled'} />
           </Grid>
-
-          <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Number of Subscripions" total={714000} icon={'ant-design:android-filled'} />
+          
+          <Grid item xs={12} md={6} lg={12}>
+            <AppTrafficBySite
+            title="Top Channels on EPNS"
+              list={[
+                // ADD THE TOP CHANNELS SHOWN IN THE MOCKUP (AAVE, MAKER, ENS)
+              ]}
+            />
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="$PUSH Trading Volume" total={234} color="error" icon={'ant-design:bug-filled'} />
-          </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits
@@ -106,7 +110,30 @@ const Home = () => {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={8}>
+          <Grid item xs={12} md={6} lg={6}>
+            <AppWebsiteVisits
+              title="Total Subscribers per week"
+              chartLabels={[
+                '01/01/2003',
+                '02/01/2003',
+                '03/01/2003',
+                '04/01/2003',
+                '05/01/2003',
+                '06/01/2003',
+              ]}
+              chartData={[
+                {
+                  name: 'Week',
+                  type: 'column',
+                  fill: 'solid',
+                  data: [23, 11, 22, 27, 13, 22],
+                },
+              ]}
+            />
+          </Grid>
+
+
+          <Grid item xs={12} md={6} lg={6}>
             <AppWebsiteVisits
               title="Total subscribers"
               chartLabels={['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']}
@@ -115,15 +142,41 @@ const Home = () => {
                   name: 'Total subscribers',
                   type: 'column',
                   fill: 'solid',
-                  data: [23, 11, 22, 27, 13, 22, 15],
+                  data: [23, 11, 22, 27, 13, 22],
                 },
               ]}
             />
           </Grid>
 
+          <Grid item xs={12} md={6} lg={6}>
+            <AppWebsiteVisits
+              title="Total Notifications per week"
+              chartLabels={[
+                '01/01/2003',
+                '02/01/2003',
+                '03/01/2003',
+                '04/01/2003',
+                '05/01/2003',
+                '06/01/2003',
+              ]}
+              chartData={[
+                {
+                  name: 'Week',
+                  type: 'column',
+                  fill: 'solid',
+                  data: [23, 11, 22, 27, 13, 22],
+                },
+              ]}
+            />
+          </Grid>
+
+
+
+
+
           <Grid item xs={12} md={6} lg={4}>
             <AppTrafficBySite
-              title="Governance"
+            title="Governance"
               list={[
                 {
                   name: 'Grants Given',
