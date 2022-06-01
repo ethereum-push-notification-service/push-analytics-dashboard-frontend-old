@@ -1,5 +1,3 @@
-// ----------------------------------------------------------------------
-
 const account = {
   displayName: 'EPNS Admin',
   email: 'admin@epns.io',

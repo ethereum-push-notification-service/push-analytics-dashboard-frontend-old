@@ -1,4 +1,4 @@
-// scroll bar
+import { Suspense } from 'react';
 import 'simplebar/src/simplebar.css';
 
 import ReactDOM from 'react-dom';
@@ -13,11 +13,13 @@ import reportWebVitals from './reportWebVitals';
 // ----------------------------------------------------------------------
 
 ReactDOM.render(
-  <HelmetProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </HelmetProvider>,
+  <Suspense fallback={<div />}>
+    <HelmetProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </HelmetProvider>
+  </Suspense>,
   document.getElementById('root')
 );
 

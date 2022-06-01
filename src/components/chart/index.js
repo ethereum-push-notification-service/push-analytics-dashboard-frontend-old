@@ -1,1 +1,4 @@
-export { default as BaseOptionChart } from './BaseOptionChart';
+import BaseOptionChart, { BaseOptionChartStyle } from './BaseOptionChart';
+
+export default BaseOptionChart;
+export { BaseOptionChartStyle };
