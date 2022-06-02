@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/epns-analytics-dashboard-frontend/static/css/main.feeb957e.css",
-    "main.js": "/epns-analytics-dashboard-frontend/static/js/main.deb0fa29.js",
+    "main.js": "/epns-analytics-dashboard-frontend/static/js/main.7e365718.js",
     "static/js/932.eb639c09.chunk.js": "/epns-analytics-dashboard-frontend/static/js/932.eb639c09.chunk.js",
     "static/js/357.2d4f1d1b.chunk.js": "/epns-analytics-dashboard-frontend/static/js/357.2d4f1d1b.chunk.js",
     "static/js/277.5824a222.chunk.js": "/epns-analytics-dashboard-frontend/static/js/277.5824a222.chunk.js",
@@ -12,7 +12,7 @@
     "static/js/930.c85f6a1c.chunk.js": "/epns-analytics-dashboard-frontend/static/js/930.c85f6a1c.chunk.js",
     "index.html": "/epns-analytics-dashboard-frontend/index.html",
     "main.feeb957e.css.map": "/epns-analytics-dashboard-frontend/static/css/main.feeb957e.css.map",
-    "main.deb0fa29.js.map": "/epns-analytics-dashboard-frontend/static/js/main.deb0fa29.js.map",
+    "main.7e365718.js.map": "/epns-analytics-dashboard-frontend/static/js/main.7e365718.js.map",
     "932.eb639c09.chunk.js.map": "/epns-analytics-dashboard-frontend/static/js/932.eb639c09.chunk.js.map",
     "357.2d4f1d1b.chunk.js.map": "/epns-analytics-dashboard-frontend/static/js/357.2d4f1d1b.chunk.js.map",
     "277.5824a222.chunk.js.map": "/epns-analytics-dashboard-frontend/static/js/277.5824a222.chunk.js.map",
@@ -24,6 +24,6 @@
   },
   "entrypoints": [
     "static/css/main.feeb957e.css",
-    "static/js/main.deb0fa29.js"
+    "static/js/main.7e365718.js"
   ]
 }
