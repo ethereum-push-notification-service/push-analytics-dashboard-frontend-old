@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import 'simplebar/src/simplebar.css';
 
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 
 //
@@ -15,9 +15,9 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <Suspense fallback={<div />}>
     <HelmetProvider>
-      <BrowserRouter>
+      <HashRouter>
         <App />
-      </BrowserRouter>
+      </HashRouter>
     </HelmetProvider>
   </Suspense>,
   document.getElementById('root')
