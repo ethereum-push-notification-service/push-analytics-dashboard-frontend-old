@@ -4,7 +4,7 @@
   "licence": "MIT",
   "version": "1.4.0",
   "private": false,
-  "homepage": "http://ethereum-push-notification-service.github.io/epns-analytics-dashboard-frontend",
+  "homepage": "https://analytics.epns.io",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
