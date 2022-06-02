@@ -4,9 +4,12 @@
   "licence": "MIT",
   "version": "1.4.0",
   "private": false,
+  "homepage": "http://ethereum-push-notification-service.github.io/epns-analytics-dashboard-frontend",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx ./src",
@@ -75,6 +78,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "gh-pages": "^4.0.0",
     "prettier": "^2.5.1"
   }
 }
