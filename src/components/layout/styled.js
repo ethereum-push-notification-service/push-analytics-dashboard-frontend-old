@@ -20,4 +20,5 @@ export const RootStyle = styled('div')({
   display: 'flex',
   minHeight: '100%',
   overflow: 'hidden',
+  background: 'white',
 });

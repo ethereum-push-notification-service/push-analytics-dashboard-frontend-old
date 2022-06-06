@@ -1,5 +1,5 @@
 const account = {
-  displayName: 'EPNS Admin',
+  displayName: 'EPNS Analytics',
   email: 'admin@epns.io',
   photoURL: '/static/mock-images/avatars/avatar_default.jpg',
 };

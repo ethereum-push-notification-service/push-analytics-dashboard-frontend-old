@@ -8,7 +8,9 @@
     "airbnb",
     "plugin:jsx-a11y/recommended",
     "plugin:react-hooks/recommended",
-    "prettier"
+    "prettier",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime"
   ],
   "plugins": [
     "react",
@@ -22,9 +24,13 @@
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
       "impliedStrict": true
-    }
+    },
+    "sourceType": "module"
   },
   "settings": {
+    "react": {
+      "version": "detect"
+    },
     "import/resolver": {
       "node": {
         "paths": [
@@ -66,6 +72,8 @@
     "react/no-unstable-nested-components": 0,
     "react/function-component-definition": 0,
     "react/jsx-no-constructed-context-values": 0,
+    "import/no-named-as-default": 0,
+    "import/no-named-as-default-member": 0,
     "no-unused-vars": [
       1,
       {

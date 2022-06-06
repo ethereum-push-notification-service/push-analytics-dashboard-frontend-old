@@ -12,10 +12,11 @@ export default function AppTrafficBySite({ title, subheader, list, ...other }) {
             display: 'grid',
             gap: 2,
             gridTemplateColumns: 'repeat(2, 1fr)',
+            mt: 4,
           }}
         >
           {list.map((site) => (
-            <Paper key={site.name} variant="outlined" sx={{ py: 1.5, textAlign: 'center' }}>
+            <Paper key={site.name} variant="outlined" sx={{ py: 3, textAlign: 'center' }}>
               <Box sx={{ mb: 0.5 }}>{site.icon}</Box>
 
               <Typography variant="h6">{fShortenNumber(site.value)}</Typography>

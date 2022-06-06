@@ -9,7 +9,7 @@ export const RootStyle = styled(AppBar)(({ theme }) => ({
   boxShadow: 'none',
   backdropFilter: 'blur(6px)',
   WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
-  backgroundColor: alpha(theme.palette.background.default, 0.72),
+  backgroundColor: 'white',
   [theme.breakpoints.up('lg')]: {
     width: `calc(100% - ${DRAWER_WIDTH + 1}px)`,
   },
@@ -36,26 +36,6 @@ export const AccountStyle = styled('div')(({ theme }) => ({
   padding: theme.spacing(2, 2.5),
   borderRadius: Number(theme.shape.borderRadius) * 1.5,
   backgroundColor: theme.palette.grey[500_12],
-}));
-
-export const SearchbarStyle = styled('div')(({ theme }) => ({
-  top: 0,
-  left: 0,
-  zIndex: 99,
-  width: '100%',
-  display: 'flex',
-  position: 'absolute',
-  alignItems: 'center',
-  height: APPBAR_MOBILE,
-  backdropFilter: 'blur(6px)',
-  WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
-  padding: theme.spacing(0, 3),
-  boxShadow: theme.customShadows.z8,
-  backgroundColor: `${alpha(theme.palette.background.default, 0.72)}`,
-  [theme.breakpoints.up('md')]: {
-    height: APPBAR_DESKTOP,
-    padding: theme.spacing(0, 5),
-  },
 }));
 
 export const ListItemStyle = styled((props) => <ListItemButton disableGutters {...props} />)(({ theme }) => ({

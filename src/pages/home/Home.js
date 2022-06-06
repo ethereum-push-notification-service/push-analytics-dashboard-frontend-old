@@ -1,5 +1,5 @@
 import { useTheme } from '@mui/material/styles';
-import { Grid, Container, Typography } from '@mui/material';
+import { Grid, Container, Typography, Box, Card, CardContent, Stack } from '@mui/material';
 import Layout from 'components/layout';
 import { AppCurrentVisits, AppWebsiteVisits, AppTrafficBySite, AppWidgetSummary } from './components';
 
@@ -9,18 +9,18 @@ const Home = () => {
   return (
     <Layout title="Dashboard">
       <Container maxWidth="xl">
-        <Typography variant="h4" sx={{ mb: 5 }}>
-          Dashboard Analytics
+        <Typography variant="h5" sx={{ mb: 5 }}>
+          Ethereum Push Notification System is the biggest communication layer of web3 in the market.
         </Typography>
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Number of Subscribers" total={714000} icon={'ant-design:user-outlined'} />
+            <AppWidgetSummary title="Total Notifications" total={714000} icon={'ant-design:user-outlined'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary
-              title="Number of Channels"
+              title="Number of Subscriptions"
               total={1352831}
               color="info"
               icon={'ant-design:wechat-outlined'}
@@ -29,7 +29,7 @@ const Home = () => {
 
           <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary
-              title="Total Notifications"
+              title="Number of Chanels"
               total={1723315}
               color="warning"
               icon={'ant-design:bell-filled'}
@@ -41,14 +41,18 @@ const Home = () => {
           </Grid>
 
           <Grid item xs={12} md={6} lg={12}>
-            <AppTrafficBySite
-              title="Top Channels on EPNS"
-              list={
-                [
-                  // ADD THE TOP CHANNELS SHOWN IN THE MOCKUP (AAVE, MAKER, ENS)
-                ]
-              }
-            />
+            <Card>
+              <CardContent>
+                <Stack direction="row" spacing={7}>
+                  <Typography variant="h5" sx={{ mt: 4, mr: 4 }}>
+                    Top Channels on EPNS
+                  </Typography>
+                  <Box component="img" src="/static/aave-logo.svg" sx={{ width: 150, height: 100 }} />
+                  <Box component="img" src="/static/maker-logo.svg" sx={{ width: 150, height: 100 }} />
+                  <Box component="img" src="/static/ens-logo.svg" sx={{ width: 150, height: 100 }} />
+                </Stack>
+              </CardContent>
+            </Card>
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
@@ -108,11 +112,17 @@ const Home = () => {
               ]}
             />
           </Grid>
+        </Grid>
 
+        <Typography variant="h5" sx={{ my: 5 }}>
+          Growing at 10x rate
+        </Typography>
+
+        <Grid container spacing={3}>
           <Grid item xs={12} md={6} lg={6}>
             <AppWebsiteVisits
-              title="Total Subscribers per week"
-              chartLabels={['01/01/2003', '02/01/2003', '03/01/2003', '04/01/2003', '05/01/2003', '06/01/2003']}
+              title="New Subscribers per week"
+              chartLabels={['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']}
               chartData={[
                 {
                   name: 'Week',
@@ -126,11 +136,11 @@ const Home = () => {
 
           <Grid item xs={12} md={6} lg={6}>
             <AppWebsiteVisits
-              title="Total subscribers"
+              title="New Channels per week"
               chartLabels={['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']}
               chartData={[
                 {
-                  name: 'Total subscribers',
+                  name: 'Week',
                   type: 'column',
                   fill: 'solid',
                   data: [23, 11, 22, 27, 13, 22],
@@ -154,7 +164,7 @@ const Home = () => {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={4}>
+          <Grid item xs={12} md={6} lg={6}>
             <AppTrafficBySite
               title="Governance"
               list={[
@@ -176,6 +186,40 @@ const Home = () => {
                 },
               ]}
             />
+          </Grid>
+        </Grid>
+
+        <Typography variant="h5" sx={{ my: 5 }}>
+          Generating value for dApps, developers and users
+        </Typography>
+
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={12} lg={12}>
+            <Card sx={{ px: 1 }}>
+              <CardContent>
+                <Stack direction="row" spacing={7}>
+                  <Box component="img" src="/static/ens-logo.svg" sx={{ width: 120, height: 50 }} />
+
+                  <Typography variant="h5" sx={{ mt: 10 }}>
+                    500 domain names saved from expiring EPNS
+                  </Typography>
+                </Stack>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          <Grid item xs={12} md={12} lg={12}>
+            <Card sx={{ px: 1 }}>
+              <CardContent>
+                <Stack direction="row" spacing={7}>
+                  <Box component="img" src="/static/aave-logo.svg" sx={{ width: 120, height: 50 }} />
+
+                  <Typography variant="h5" sx={{ mt: 10 }}>
+                    $10M saved from liquidation using EPNS
+                  </Typography>
+                </Stack>
+              </CardContent>
+            </Card>
           </Grid>
         </Grid>
       </Container>
