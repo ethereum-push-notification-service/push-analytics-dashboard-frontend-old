@@ -1,4 +1,4 @@
-import { alpha, styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import { AppBar, Toolbar, ListItemIcon, ListItemButton } from '@mui/material';
 
 const DRAWER_WIDTH = 280;

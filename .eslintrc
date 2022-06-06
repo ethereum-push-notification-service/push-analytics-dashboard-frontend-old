@@ -74,6 +74,7 @@
     "react/jsx-no-constructed-context-values": 0,
     "import/no-named-as-default": 0,
     "import/no-named-as-default-member": 0,
+    "react/display-name": 0,
     "no-unused-vars": [
       1,
       {
