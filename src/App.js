@@ -5,7 +5,6 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import ThemeProvider from './theme';
 
 const Home = lazy(() => import('pages/home'));
-const Login = lazy(() => import('pages/login'));
 const Page404 = lazy(() => import('pages/not-found'));
 
 const ScrollToTop = () => {
@@ -24,7 +23,6 @@ export default function App() {
       <ScrollToTop />
       <BaseOptionChartStyle />
       <Routes>
-        <Route path={ROUTES.LOGIN} element={<Login />} />
         <Route path={ROUTES.HOME} element={<Home />} />
         <Route path={ROUTES.ERROR} element={<Page404 />} />
       </Routes>
