@@ -1,10 +1,22 @@
+import { useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography, Box, Card, CardContent, Stack } from '@mui/material';
 import Layout from 'components/layout';
+import { getTotalNumberOfChannels, getTotalNumberOfSubscribers } from 'utils/api';
 import { AppCurrentVisits, AppWebsiteVisits, AppTrafficBySite, AppWidgetSummary } from './components';
 
 const Home = () => {
   const theme = useTheme();
+
+  const [channelsCount, setChannelsCount] = useState(0);
+  const [subscriberCount, setSubscriberCount] = useState(0);
+
+  useEffect(() => {
+    (async () => {
+      setChannelsCount(await getTotalNumberOfChannels());
+      setSubscriberCount(await getTotalNumberOfSubscribers());
+    })();
+  }, []);
 
   return (
     <Layout title="Dashboard">
@@ -21,7 +33,7 @@ const Home = () => {
           <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary
               title="Number of Subscriptions"
-              total={1352831}
+              total={subscriberCount}
               color="info"
               icon={'ant-design:wechat-outlined'}
             />
@@ -30,7 +42,7 @@ const Home = () => {
           <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary
               title="Number of Chanels"
-              total={1723315}
+              total={channelsCount}
               color="warning"
               icon={'ant-design:bell-filled'}
             />
