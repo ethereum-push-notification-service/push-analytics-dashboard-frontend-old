@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:4000/api/analytics';
+const API_URL = 'https://api.analytics.epns.io/api/analytics';
 
 export const getTotalNumberOfChannels = async () => {
   try {
