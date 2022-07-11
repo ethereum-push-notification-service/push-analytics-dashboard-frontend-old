@@ -21,3 +21,23 @@ export const getTotalNumberOfSubscribers = async () => {
     return error.response.data;
   }
 };
+
+export const getTotalNumberOfNotifications = async () => {
+  try {
+    const response = await axios.post(`${API_URL}/get_total_notifications`, {});
+
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
+
+export const pushTradingVolume = async () => {
+  try {
+    const response = await axios.post(`${API_URL}/get_push_trading_volume`, {});
+
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography, Box, Card, CardContent, Stack } from '@mui/material';
 import Layout from 'components/layout';
-import { getTotalNumberOfChannels, getTotalNumberOfSubscribers } from 'utils/api';
+import { getTotalNumberOfChannels, getTotalNumberOfSubscribers, getTotalNumberOfNotifications, pushTradingVolume } from 'utils/api';
 import { AppCurrentVisits, AppWebsiteVisits, AppTrafficBySite, AppWidgetSummary } from './components';
 
 const Home = () => {
@@ -10,11 +10,15 @@ const Home = () => {
 
   const [channelsCount, setChannelsCount] = useState(0);
   const [subscriberCount, setSubscriberCount] = useState(0);
+  const [notificationCount, setNotificationCount] = useState(0);
+  const [pushTradingCount, setPushTradingVolume] = useState(0);
 
   useEffect(() => {
     (async () => {
       setChannelsCount(await getTotalNumberOfChannels());
       setSubscriberCount(await getTotalNumberOfSubscribers());
+      setNotificationCount(await getTotalNumberOfNotifications());
+      setPushTradingVolume(await pushTradingVolume());
     })();
   }, []);
 
@@ -27,7 +31,10 @@ const Home = () => {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Total Notifications" total={714000} icon={'ant-design:user-outlined'} />
+            <AppWidgetSummary 
+            title="Total Notifications" 
+            total={notificationCount} 
+            icon={'ant-design:user-outlined'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
@@ -41,7 +48,7 @@ const Home = () => {
 
           <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary
-              title="Number of Chanels"
+              title="Number of Channels"
               total={channelsCount}
               color="warning"
               icon={'ant-design:bell-filled'}
@@ -49,7 +56,11 @@ const Home = () => {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="$PUSH Trading Volume" total={234} color="error" icon={'ant-design:bug-filled'} />
+            <AppWidgetSummary 
+            title="$PUSH Trading Volume"
+            total={pushTradingCount} 
+            color="error" 
+            icon={'ant-design:bug-filled'} />
           </Grid>
 
           <Grid item xs={12} md={6} lg={12}>
