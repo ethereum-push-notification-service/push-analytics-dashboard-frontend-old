@@ -30,6 +30,16 @@ export const getTotalNumberOfNotifications = async () => {
   }
 };
 
+export const getSubscribersWeeklyCount = async () => {
+  try {
+    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/get_total_subscribers_count_weekly');
+
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
+
 export const pushTradingVolume = async () => {
   try {
     const response = await axios.post('https://api.analytics.epns.io/apis/analytics/get_push_trading_volume');
@@ -114,77 +124,8 @@ export const browserUsers = async () => {
   }
 };
 
-// New Subscribers Per Week
 
-export const subscribersOnMonday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/subscribersOnMonday');
 
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const subscribersOnTuesday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/subscribersOnTuesday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const subscribersOnWednesday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/subscribersOnWednesday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const subscribersOnThursday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/subscribersOnThursday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const subscribersOnFriday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/subscribersOnFriday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const subscribersOnSaturday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/subscribersOnSaturday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const subscribersOnSunday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/subscribersOnSunday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
 
 // New Channels per week
 

@@ -2,22 +2,15 @@ import { useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography, Box, Card, CardContent, Stack } from '@mui/material';
 import Layout from 'components/layout';
-import { 
+import {
   getTotalNumberOfChannels,
-  getTotalNumberOfSubscribers, 
-  getTotalNumberOfNotifications, 
+  getTotalNumberOfSubscribers,
+  getTotalNumberOfNotifications,
   pushTradingVolume,
-  dAppUsers, 
-  IOSUsers, 
-  androidUsers, 
-  browserUsers, 
-  subscribersOnMonday, 
-  subscribersOnTuesday, 
-  subscribersOnWednesday, 
-  subscribersOnThursday,
-  subscribersOnFriday,
-  subscribersOnSaturday,
-  subscribersOnSunday,
+  dAppUsers,
+  IOSUsers,
+  androidUsers,
+  browserUsers,
   channelsOnMonday,
   channelsOnTuesday,
   channelsOnWednesday,
@@ -31,9 +24,10 @@ import {
   notificationsOnThursday,
   notificationsOnFriday,
   notificationsOnSaturday,
-  notificationsOnSunday, 
+  notificationsOnSunday,
 } from 'utils/api';
 import { AppCurrentVisits, AppWebsiteVisits, AppTrafficBySite, AppWidgetSummary } from './components';
+import SubscribersWeeklyCount from './components/SubscribersWeeklyCount';
 
 const Home = () => {
   const theme = useTheme();
@@ -48,15 +42,6 @@ const Home = () => {
   const [browserCount, setBrowserCount] = useState(0);
 
   // Channels per day
-  const [subscribersOnMondayCount, setSubscribersOnMonday] = useState(0);
-  const [subscribersOnTuesdayCount, setSubscribersOnTuesday] = useState(0);
-  const [subscribersOnWednesdayCount, setSubscribersOnWednesday] = useState(0);
-  const [subscribersOnThursdayCount, setSubscribersOnThursdayCount] = useState(0);
-  const [subscribersOnFridayCount, setSubscribersOnFridayCount] = useState(0);
-  const [subscribersOnSaturdayCount, setSubscribersOnSaturdayCount] = useState(0);
-  const [subscribersOnSundayCount, setSubscribersOnSundayCount] = useState(0);
-
-  // Channels per day
   const [channelsOnMondayCount, setChannelsOnMondayCount] = useState(0);
   const [channelsOnTuesdayCount, setChannelsOnTuesdayCount] = useState(0);
   const [channelsOnWednesdayCount, setChannelsOnWednesdayCount] = useState(0);
@@ -65,7 +50,7 @@ const Home = () => {
   const [channelsOnSaturdayCount, setChannelsOnSaturday] = useState(0);
   const [channelsOnSundayCount, setChannelsOnSundayCount] = useState(0);
 
-  // Notifications per day 
+  // Notifications per day
   const [notificationsOnMondayCount, setNotificationsOnMondayCount] = useState(0);
   const [notificationsOnTuesdayCount, setNotificationsOnTuesdayCount] = useState(0);
   const [notificationsOnWednesdayCount, setNotificationsOnWednesdayCount] = useState(0);
@@ -73,7 +58,6 @@ const Home = () => {
   const [notificationsOnFridayCount, setNotificationsOnFridayCount] = useState(0);
   const [notificationsOnSaturdayCount, setNotificationsOnSaturdayCount] = useState(0);
   const [notificationsOnSundayCount, setNotificationsOnSundayCount] = useState(0);
-
 
   useEffect(() => {
     (async () => {
@@ -85,13 +69,7 @@ const Home = () => {
       setIOSCount(await IOSUsers());
       setAndroidCount(await androidUsers());
       setBrowserCount(await browserUsers());
-      setSubscribersOnMonday(await subscribersOnMonday());
-      setSubscribersOnTuesday(await subscribersOnTuesday());
-      setSubscribersOnWednesday(await subscribersOnWednesday());
-      setSubscribersOnThursdayCount(await subscribersOnThursday());
-      setSubscribersOnFridayCount(await subscribersOnFriday());
-      setSubscribersOnSaturdayCount(await subscribersOnSaturday());
-      setSubscribersOnSundayCount(await subscribersOnSunday());
+
       setChannelsOnMondayCount(await channelsOnMonday());
       setChannelsOnTuesdayCount(await channelsOnTuesday());
       setChannelsOnWednesdayCount(await channelsOnWednesday());
@@ -106,7 +84,6 @@ const Home = () => {
       setNotificationsOnFridayCount(await notificationsOnFriday());
       setNotificationsOnSaturdayCount(await notificationsOnSaturday());
       setNotificationsOnSundayCount(await notificationsOnSunday());
-
     })();
   }, []);
 
@@ -119,10 +96,7 @@ const Home = () => {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary 
-            title="Total Notifications" 
-            total={notificationCount} 
-            icon={'ant-design:user-outlined'} />
+            <AppWidgetSummary title="Total Notifications" total={0} icon={'ant-design:user-outlined'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
@@ -144,11 +118,7 @@ const Home = () => {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary 
-            title="$PUSH Trading Volume"
-            total={pushTradingCount} 
-            color="error" 
-            icon={'ant-design:bug-filled'} />
+            <AppWidgetSummary title="$PUSH Trading Volume" total={0} color="error" icon={'ant-design:bug-filled'} />
           </Grid>
 
           <Grid item xs={12} md={6} lg={12}>
@@ -210,10 +180,10 @@ const Home = () => {
             <AppCurrentVisits
               title="Total Users by Platform"
               chartData={[
-                { label: 'dApp', value: {dAppCount} },
-                { label: 'IOS', value: {IOSCount} },
-                { label: 'Android', value: {androidCount} },
-                { label: 'Browser Extension', value: {browserCount} },
+                { label: 'dApp', value: { dAppCount } },
+                { label: 'IOS', value: { IOSCount } },
+                { label: 'Android', value: { androidCount } },
+                { label: 'Browser Extension', value: { browserCount } },
               ]}
               chartColors={[
                 theme.palette.chart.violet[0],
@@ -230,20 +200,7 @@ const Home = () => {
         </Typography>
 
         <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={6}>
-            <AppWebsiteVisits
-              title="New Subscribers per day"
-              chartLabels={['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']}
-              chartData={[
-                {
-                  name: 'Week',
-                  type: 'column',
-                  fill: 'solid',
-                  data: [subscribersOnSundayCount, subscribersOnMondayCount, subscribersOnTuesdayCount, subscribersOnWednesdayCount, subscribersOnThursdayCount, subscribersOnFridayCount, subscribersOnSaturdayCount],
-                },
-              ]}
-            />
-          </Grid>
+          <SubscribersWeeklyCount />
 
           <Grid item xs={12} md={6} lg={6}>
             <AppWebsiteVisits
@@ -254,7 +211,15 @@ const Home = () => {
                   name: 'Week',
                   type: 'column',
                   fill: 'solid',
-                  data: [channelsOnSundayCount, channelsOnMondayCount, channelsOnTuesdayCount, channelsOnWednesdayCount, channelsOnThursdayCount, channelsOnFridayCount, channelsOnSaturdayCount],
+                  data: [
+                    channelsOnSundayCount,
+                    channelsOnMondayCount,
+                    channelsOnTuesdayCount,
+                    channelsOnWednesdayCount,
+                    channelsOnThursdayCount,
+                    channelsOnFridayCount,
+                    channelsOnSaturdayCount,
+                  ],
                 },
               ]}
             />
@@ -269,7 +234,15 @@ const Home = () => {
                   name: 'Week',
                   type: 'column',
                   fill: 'solid',
-                  data: [notificationsOnSundayCount, notificationsOnMondayCount, notificationsOnTuesdayCount, notificationsOnWednesdayCount, notificationsOnThursdayCount, notificationsOnFridayCount, notificationsOnSaturdayCount],
+                  data: [
+                    notificationsOnSundayCount,
+                    notificationsOnMondayCount,
+                    notificationsOnTuesdayCount,
+                    notificationsOnWednesdayCount,
+                    notificationsOnThursdayCount,
+                    notificationsOnFridayCount,
+                    notificationsOnSaturdayCount,
+                  ],
                 },
               ]}
             />
