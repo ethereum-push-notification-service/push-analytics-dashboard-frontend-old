@@ -15,14 +15,14 @@ const SubscribersWeeklyCount = () => {
 
   const dates = [...Array(7)].map((_, i) => {
     const d = new Date();
-    d.setDate(d.getDate() - i);
+    d.setDate(d.getDate() - i * 7);
 
     return d.toISOString();
   });
 
   const formattedDates = [...Array(7)].map((_, i) => {
     const d = new Date();
-    d.setDate(d.getDate() - i);
+    d.setDate(d.getDate() - i * 7);
 
     return dayjs(d.toISOString()).format('ddd, MMMM D');
   });
@@ -31,7 +31,7 @@ const SubscribersWeeklyCount = () => {
     (async () => {
       const response = await getSubscribersWeeklyCount();
 
-      setData(convertDataValueToArray(response));
+      setData(convertDataValueToArray(response).slice(-7));
       setLoading(false);
     })();
   }, []);
