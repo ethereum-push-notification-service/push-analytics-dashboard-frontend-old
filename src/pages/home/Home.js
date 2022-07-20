@@ -11,23 +11,11 @@ import {
   IOSUsers,
   androidUsers,
   browserUsers,
-  channelsOnMonday,
-  channelsOnTuesday,
-  channelsOnWednesday,
-  channelsOnThursday,
-  channelsOnFriday,
-  channelsOnSaturday,
-  channelsOnSunday,
-  notificationsOnMonday,
-  notificationsOnTuesday,
-  notificationsOnWednesday,
-  notificationsOnThursday,
-  notificationsOnFriday,
-  notificationsOnSaturday,
-  notificationsOnSunday,
 } from 'utils/api';
 import { AppCurrentVisits, AppWebsiteVisits, AppTrafficBySite, AppWidgetSummary } from './components';
 import SubscribersWeeklyCount from './components/SubscribersWeeklyCount';
+import ChannelsWeeklyCount from './components/ChannelsWeeklyCount';
+// import NotificationsWeeklyCount from './components/NotificationsWeeklyCount';
 
 const Home = () => {
   const theme = useTheme();
@@ -41,24 +29,6 @@ const Home = () => {
   const [androidCount, setAndroidCount] = useState(0);
   const [browserCount, setBrowserCount] = useState(0);
 
-  // Channels per day
-  const [channelsOnMondayCount, setChannelsOnMondayCount] = useState(0);
-  const [channelsOnTuesdayCount, setChannelsOnTuesdayCount] = useState(0);
-  const [channelsOnWednesdayCount, setChannelsOnWednesdayCount] = useState(0);
-  const [channelsOnThursdayCount, setChannelsOnThursdayCount] = useState(0);
-  const [channelsOnFridayCount, setChannelsOnFridayCount] = useState(0);
-  const [channelsOnSaturdayCount, setChannelsOnSaturday] = useState(0);
-  const [channelsOnSundayCount, setChannelsOnSundayCount] = useState(0);
-
-  // Notifications per day
-  const [notificationsOnMondayCount, setNotificationsOnMondayCount] = useState(0);
-  const [notificationsOnTuesdayCount, setNotificationsOnTuesdayCount] = useState(0);
-  const [notificationsOnWednesdayCount, setNotificationsOnWednesdayCount] = useState(0);
-  const [notificationsOnThursdayCount, setNotificationsOnThursdayCount] = useState(0);
-  const [notificationsOnFridayCount, setNotificationsOnFridayCount] = useState(0);
-  const [notificationsOnSaturdayCount, setNotificationsOnSaturdayCount] = useState(0);
-  const [notificationsOnSundayCount, setNotificationsOnSundayCount] = useState(0);
-
   useEffect(() => {
     (async () => {
       setChannelsCount(await getTotalNumberOfChannels());
@@ -70,20 +40,6 @@ const Home = () => {
       setAndroidCount(await androidUsers());
       setBrowserCount(await browserUsers());
 
-      setChannelsOnMondayCount(await channelsOnMonday());
-      setChannelsOnTuesdayCount(await channelsOnTuesday());
-      setChannelsOnWednesdayCount(await channelsOnWednesday());
-      setChannelsOnThursdayCount(await channelsOnThursday());
-      setChannelsOnFridayCount(await channelsOnFriday());
-      setChannelsOnSaturday(await channelsOnSaturday());
-      setChannelsOnSundayCount(await channelsOnSunday());
-      setNotificationsOnMondayCount(await notificationsOnMonday());
-      setNotificationsOnTuesdayCount(await notificationsOnTuesday());
-      setNotificationsOnWednesdayCount(await notificationsOnWednesday());
-      setNotificationsOnThursdayCount(await notificationsOnThursday());
-      setNotificationsOnFridayCount(await notificationsOnFriday());
-      setNotificationsOnSaturdayCount(await notificationsOnSaturday());
-      setNotificationsOnSundayCount(await notificationsOnSunday());
     })();
   }, []);
 
@@ -201,76 +157,8 @@ const Home = () => {
 
         <Grid container spacing={3}>
           <SubscribersWeeklyCount />
-
-          <Grid item xs={12} md={6} lg={6}>
-            <AppWebsiteVisits
-              title="New Channels per day"
-              chartLabels={['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']}
-              chartData={[
-                {
-                  name: 'Week',
-                  type: 'column',
-                  fill: 'solid',
-                  data: [
-                    channelsOnSundayCount,
-                    channelsOnMondayCount,
-                    channelsOnTuesdayCount,
-                    channelsOnWednesdayCount,
-                    channelsOnThursdayCount,
-                    channelsOnFridayCount,
-                    channelsOnSaturdayCount,
-                  ],
-                },
-              ]}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={6}>
-            <AppWebsiteVisits
-              title="Total Notifications per day"
-              chartLabels={['01/01/2003', '02/01/2003', '03/01/2003', '04/01/2003', '05/01/2003', '06/01/2003']}
-              chartData={[
-                {
-                  name: 'Week',
-                  type: 'column',
-                  fill: 'solid',
-                  data: [
-                    notificationsOnSundayCount,
-                    notificationsOnMondayCount,
-                    notificationsOnTuesdayCount,
-                    notificationsOnWednesdayCount,
-                    notificationsOnThursdayCount,
-                    notificationsOnFridayCount,
-                    notificationsOnSaturdayCount,
-                  ],
-                },
-              ]}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={6}>
-            <AppTrafficBySite
-              title="Governance"
-              list={[
-                {
-                  name: 'Grants Given',
-                  value: 6,
-                },
-                {
-                  name: 'Integrations',
-                  value: 11,
-                },
-                {
-                  name: 'Delegates',
-                  value: 17,
-                },
-                {
-                  name: 'Votes',
-                  value: 54,
-                },
-              ]}
-            />
-          </Grid>
+          <ChannelsWeeklyCount />
+          {/* <NotificationsWeeklyCount/> */}
         </Grid>
 
         <Typography variant="h5" sx={{ my: 5 }}>

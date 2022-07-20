@@ -40,6 +40,26 @@ export const getSubscribersWeeklyCount = async () => {
   }
 };
 
+export const getChannelsWeeklyCount = async () => {
+  try {
+    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/channels/get_total_channel_count_weekly');
+
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
+
+export const getNotificationsWeeklyCount = async () => {
+  try {
+    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/feeds/get_total_notifs_sent_nweeks');
+
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
+
 export const pushTradingVolume = async () => {
   try {
     const response = await axios.post('https://api.analytics.epns.io/apis/analytics/get_push_trading_volume');
@@ -117,153 +137,6 @@ export const androidUsers = async () => {
 export const browserUsers = async () => {
   try {
     const response = await axios.post('https://api.analytics.epns.io/apis/analytics/browserUsers');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-
-
-
-// New Channels per week
-
-export const channelsOnMonday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/channelsOnMonday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const channelsOnTuesday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/channelsOnTuesday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const channelsOnWednesday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/channelsOnWednesday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const channelsOnThursday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/channelsOnThursday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const channelsOnFriday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/channelsOnFriday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const channelsOnSaturday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/channelsOnSaturday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const channelsOnSunday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/channelsOnSunday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-// Total Notifications per week
-
-export const notificationsOnMonday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/notificationsOnMonday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const notificationsOnTuesday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/notificationsOnTuesday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const notificationsOnWednesday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/notificationsOnWednesday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const notificationsOnThursday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/notificationsOnThursday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const notificationsOnFriday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/notificationsOnFriday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const notificationsOnSaturday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/notificationsOnSaturday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const notificationsOnSunday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/notificationsOnSunday');
 
     return response.data;
   } catch (error) {
