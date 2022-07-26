@@ -1,8 +1,10 @@
 import axios from 'axios';
 
+const API_URL = 'https://api.analytics.epns.io/apis/analytics';
+
 export const getTotalNumberOfChannels = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/get_total_channel_count');
+    const response = await axios.post(`${API_URL}/get_total_channel_count`);
 
     return response.data;
   } catch (error) {
@@ -12,7 +14,7 @@ export const getTotalNumberOfChannels = async () => {
 
 export const getTotalNumberOfSubscribers = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/get_total_subscribers_count');
+    const response = await axios.post(`${API_URL}/get_total_subscribers_count`);
 
     return response.data;
   } catch (error) {
@@ -22,7 +24,7 @@ export const getTotalNumberOfSubscribers = async () => {
 
 export const getTotalNumberOfNotifications = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/get_total_notifications');
+    const response = await axios.post(`${API_URL}/feeds/get_notifs_sent`);
 
     return response.data;
   } catch (error) {
@@ -32,7 +34,7 @@ export const getTotalNumberOfNotifications = async () => {
 
 export const getSubscribersWeeklyCount = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/get_total_subscribers_count_weekly');
+    const response = await axios.post(`${API_URL}/get_total_subscribers_count_weekly`);
 
     return response.data;
   } catch (error) {
@@ -42,7 +44,7 @@ export const getSubscribersWeeklyCount = async () => {
 
 export const pushTradingVolume = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/get_push_trading_volume');
+    const response = await axios.post(`${API_URL}/get_push_trading_volume`);
 
     return response.data;
   } catch (error) {
@@ -54,7 +56,7 @@ export const pushTradingVolume = async () => {
 
 export const PUSHPrice = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/PUSHPrice');
+    const response = await axios.post(`${API_URL}/PUSHPrice`);
 
     return response.data;
   } catch (error) {
@@ -64,7 +66,7 @@ export const PUSHPrice = async () => {
 
 export const ETHPrice = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/ETHPrice');
+    const response = await axios.post(`${API_URL}/ETHPrice`);
 
     return response.data;
   } catch (error) {
@@ -74,7 +76,7 @@ export const ETHPrice = async () => {
 
 export const MATICPrice = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/MATICPrice');
+    const response = await axios.post(`${API_URL}/MATICPrice`);
 
     return response.data;
   } catch (error) {
@@ -86,7 +88,7 @@ export const MATICPrice = async () => {
 
 export const dAppUsers = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/dAppUsers');
+    const response = await axios.post(`${API_URL}/dAppUsers`);
 
     return response.data;
   } catch (error) {
@@ -96,7 +98,7 @@ export const dAppUsers = async () => {
 
 export const IOSUsers = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/IOSUsers');
+    const response = await axios.post(`${API_URL}/IOSUsers`);
 
     return response.data;
   } catch (error) {
@@ -106,7 +108,7 @@ export const IOSUsers = async () => {
 
 export const androidUsers = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/androidUsers');
+    const response = await axios.post(`${API_URL}/androidUsers`);
 
     return response.data;
   } catch (error) {
@@ -116,82 +118,19 @@ export const androidUsers = async () => {
 
 export const browserUsers = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/browserUsers');
+    const response = await axios.post(`${API_URL}/browserUsers`);
 
     return response.data;
   } catch (error) {
     return error.response.data;
   }
 };
-
-
-
 
 // New Channels per week
 
-export const channelsOnMonday = async () => {
+export const getChannelsPerWeek = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/channelsOnMonday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const channelsOnTuesday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/channelsOnTuesday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const channelsOnWednesday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/channelsOnWednesday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const channelsOnThursday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/channelsOnThursday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const channelsOnFriday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/channelsOnFriday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const channelsOnSaturday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/channelsOnSaturday');
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const channelsOnSunday = async () => {
-  try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/channelsOnSunday');
+    const response = await axios.post(`${API_URL}/get_total_channel_count_weekly`);
 
     return response.data;
   } catch (error) {
@@ -203,7 +142,7 @@ export const channelsOnSunday = async () => {
 
 export const notificationsOnMonday = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/notificationsOnMonday');
+    const response = await axios.post(`${API_URL}/notificationsOnMonday`);
 
     return response.data;
   } catch (error) {
@@ -213,7 +152,7 @@ export const notificationsOnMonday = async () => {
 
 export const notificationsOnTuesday = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/notificationsOnTuesday');
+    const response = await axios.post(`${API_URL}/notificationsOnTuesday`);
 
     return response.data;
   } catch (error) {
@@ -223,7 +162,7 @@ export const notificationsOnTuesday = async () => {
 
 export const notificationsOnWednesday = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/notificationsOnWednesday');
+    const response = await axios.post(`${API_URL}/notificationsOnWednesday`);
 
     return response.data;
   } catch (error) {
@@ -233,7 +172,7 @@ export const notificationsOnWednesday = async () => {
 
 export const notificationsOnThursday = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/notificationsOnThursday');
+    const response = await axios.post(`${API_URL}/notificationsOnThursday`);
 
     return response.data;
   } catch (error) {
@@ -243,7 +182,7 @@ export const notificationsOnThursday = async () => {
 
 export const notificationsOnFriday = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/notificationsOnFriday');
+    const response = await axios.post(`${API_URL}/notificationsOnFriday`);
 
     return response.data;
   } catch (error) {
@@ -253,7 +192,7 @@ export const notificationsOnFriday = async () => {
 
 export const notificationsOnSaturday = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/notificationsOnSaturday');
+    const response = await axios.post(`${API_URL}/notificationsOnSaturday`);
 
     return response.data;
   } catch (error) {
@@ -263,7 +202,7 @@ export const notificationsOnSaturday = async () => {
 
 export const notificationsOnSunday = async () => {
   try {
-    const response = await axios.post('https://api.analytics.epns.io/apis/analytics/notificationsOnSunday');
+    const response = await axios.post(`${API_URL}/notificationsOnSunday`);
 
     return response.data;
   } catch (error) {

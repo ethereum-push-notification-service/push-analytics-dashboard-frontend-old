@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Grid, Card, CardHeader, Box, CircularProgress } from '@mui/material';
-import ReactApexChart from 'react-apexcharts';
-import BaseOptionChart from 'components/chart';
-import { getSubscribersWeeklyCount } from 'utils/api';
+import { Grid, Box, CircularProgress, Card, CardHeader } from '@mui/material';
+import { getChannelsPerWeek } from 'utils/api';
 import dayjs from 'dayjs';
 import _ from 'lodash';
+import ReactApexChart from 'react-apexcharts';
+import BaseOptionChart from 'components/chart';
 
 const convertDataValueToArray = (data) => Object.values(data);
 
-const SubscribersWeeklyCount = () => {
+const ChannelsPerWeek = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -28,7 +28,7 @@ const SubscribersWeeklyCount = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await getSubscribersWeeklyCount();
+      const response = await getChannelsPerWeek();
 
       setData(convertDataValueToArray(response).slice(-7));
       setLoading(false);
@@ -66,9 +66,9 @@ const SubscribersWeeklyCount = () => {
     <Grid item xs={12} md={6} lg={6}>
       <Card>
         <CardHeader
-          title={`Subscribers count:  ${dayjs(dates[dates.length - 1]).format('ddd, MMMM D')} - ${dayjs(
-            dates[0]
-          ).format('ddd, MMMM D')}`}
+          title={`New Channels:  ${dayjs(dates[dates.length - 1]).format('ddd, MMMM D')} - ${dayjs(dates[0]).format(
+            'ddd, MMMM D'
+          )}`}
         />
 
         {loading ? (
@@ -94,4 +94,4 @@ const SubscribersWeeklyCount = () => {
   );
 };
 
-export default SubscribersWeeklyCount;
+export default ChannelsPerWeek;
