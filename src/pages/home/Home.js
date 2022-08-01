@@ -2,7 +2,12 @@ import { useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography, Box, Card, CardContent, Stack } from '@mui/material';
 import Layout from 'components/layout';
-import { getTotalNumberOfChannels, getTotalNumberOfSubscribers } from 'utils/api';
+import {
+  getTotalNumberOfChannels,
+  getTotalNumberOfSubscribers,
+  getTotalNotifications,
+  getNotificationsPerWeek,
+} from 'utils/api';
 import { AppCurrentVisits, AppWebsiteVisits, AppTrafficBySite, AppWidgetSummary } from './components';
 
 import SubscribersWeeklyCount from './components/SubscribersWeeklyCount';
@@ -13,11 +18,15 @@ const Home = () => {
 
   const [channelsCount, setChannelsCount] = useState(0);
   const [subscriberCount, setSubscriberCount] = useState(0);
+  const [totalNotifications, setTotalNotifications] = useState(0);
 
   useEffect(() => {
     (async () => {
       setChannelsCount(await getTotalNumberOfChannels());
       setSubscriberCount(await getTotalNumberOfSubscribers());
+      setTotalNotifications(await getTotalNotifications());
+
+      console.log(await getNotificationsPerWeek());
     })();
   }, []);
 
@@ -30,7 +39,11 @@ const Home = () => {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Total Notifications" total={0} icon={'ant-design:user-outlined'} />
+            <AppWidgetSummary
+              title="Total Notifications"
+              total={totalNotifications}
+              icon={'ant-design:user-outlined'}
+            />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>

@@ -138,11 +138,11 @@ export const getChannelsPerWeek = async () => {
   }
 };
 
-// Total Notifications per week
+// Total Notifications 
 
-export const notificationsOnMonday = async () => {
+export const getTotalNotifications = async () => {
   try {
-    const response = await axios.post(`${API_URL}/notificationsOnMonday`);
+    const response = await axios.post(`${API_URL}/feeds/get_notifs_sent`);
 
     return response.data;
   } catch (error) {
@@ -150,59 +150,11 @@ export const notificationsOnMonday = async () => {
   }
 };
 
-export const notificationsOnTuesday = async () => {
+// Total Notifications 
+
+export const getNotificationsPerWeek = async () => {
   try {
-    const response = await axios.post(`${API_URL}/notificationsOnTuesday`);
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const notificationsOnWednesday = async () => {
-  try {
-    const response = await axios.post(`${API_URL}/notificationsOnWednesday`);
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const notificationsOnThursday = async () => {
-  try {
-    const response = await axios.post(`${API_URL}/notificationsOnThursday`);
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const notificationsOnFriday = async () => {
-  try {
-    const response = await axios.post(`${API_URL}/notificationsOnFriday`);
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const notificationsOnSaturday = async () => {
-  try {
-    const response = await axios.post(`${API_URL}/notificationsOnSaturday`);
-
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
-export const notificationsOnSunday = async () => {
-  try {
-    const response = await axios.post(`${API_URL}/notificationsOnSunday`);
+    const response = await axios.post(`${API_URL}/feeds/get_total_notifs_sent_nweeks`);
 
     return response.data;
   } catch (error) {
