@@ -40,6 +40,7 @@ const ChannelsPerWeek = () => {
       name: '',
       type: 'column',
       fill: 'solid',
+      color: 'rgb(103, 76, 159)',
       data,
     },
   ];
@@ -66,7 +67,7 @@ const ChannelsPerWeek = () => {
     <Grid item xs={12} md={6} lg={6}>
       <Card>
         <CardHeader
-          title={`New Channels:  ${dayjs(dates[dates.length - 1]).format('ddd, MMMM D')} - ${dayjs(dates[0]).format(
+          title={`New Channels per Week:  ${dayjs(dates[dates.length - 1]).format('ddd, MMMM D')} - ${dayjs(dates[0]).format(
             'ddd, MMMM D'
           )}`}
         />
