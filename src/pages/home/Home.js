@@ -14,7 +14,6 @@ import SubscribersWeeklyCount from './components/SubscribersWeeklyCount';
 import ChannelsPerWeek from './components/ChannelsPerWeek';
 import NotificationsWeeklyCount from './components/NotificationsWeeklyCount';
 import Compare from './components/Compare';
-import TopChannelsView from './components/TopChannelsView';
 
 const Home = () => {
 
