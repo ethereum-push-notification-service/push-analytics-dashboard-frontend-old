@@ -21,8 +21,7 @@ const Home = () => {
   const [subscriberCount, setSubscriberCount] = useState(0);
   const [totalNotifications, setTotalNotifications] = useState(0);
   const [pushTrading, setPushTrading] = useState(0);
-  const [name, setName] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [name, setName] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -31,7 +30,6 @@ const Home = () => {
       setTotalNotifications(await getTotalNotifications());
       setPushTrading(await pushTradingVolume());
       setName((await topChannels()).channels)
-      setLoading(false);
     })();
   }, []);
 
@@ -82,7 +80,7 @@ const Home = () => {
               <CardContent>
                 <Stack direction="row" spacing={20}>
                   
-                  {loading ? (
+                  {!name.length>0 ? (
                     <Box
                       sx={{
                         display: 'flex',
@@ -107,7 +105,7 @@ const Home = () => {
               <CardContent>
                 <Stack direction="row" spacing={20}>
                   
-                  {loading ? (
+                  {!name.length>0 ? (
                     <Box
                       sx={{
                         display: 'flex',
