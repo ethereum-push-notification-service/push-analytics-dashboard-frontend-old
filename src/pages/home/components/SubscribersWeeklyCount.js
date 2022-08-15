@@ -66,7 +66,7 @@ const SubscribersWeeklyCount = () => {
     <Grid item xs={12} md={6} lg={6}>
       <Card>
         <CardHeader
-          title={`Subscribers count:  ${dayjs(dates[dates.length - 1]).format('ddd, MMMM D')} - ${dayjs(
+          title={`New Subscribers per Week:  ${dayjs(dates[dates.length - 1]).format('ddd, MMMM D')} - ${dayjs(
             dates[0]
           ).format('ddd, MMMM D')}`}
         />
