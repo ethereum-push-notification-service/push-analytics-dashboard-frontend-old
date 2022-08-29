@@ -9,7 +9,7 @@ import {
   topChannels,
 } from 'utils/api';
 import { AppWidgetSummary } from './components';
-
+import AppTrafficBySite from './components/AppTrafficBySite';
 import SubscribersWeeklyCount from './components/SubscribersWeeklyCount';
 import ChannelsPerWeek from './components/ChannelsPerWeek';
 import NotificationsWeeklyCount from './components/NotificationsWeeklyCount';
@@ -74,13 +74,13 @@ const Home = () => {
           {/* <TopChannelsView /> */}
           <Grid item xs={12} md={6} lg={12}>
             <Card>
-            <Typography variant="h4" sx={{ mt: 4, mr: 4, ml: 4, mb: 4 }}>
-                   <center> Top Channels on EPNS</center>
-                  </Typography>
+              <Typography variant="h4" sx={{ mt: 4, mr: 4, ml: 4, mb: 4 }}>
+                <center> Top Channels on EPNS</center>
+              </Typography>
               <CardContent>
                 <Stack direction="row" spacing={20}>
-                  
-                  {!name.length>0 ? (
+
+                  {!name.length > 0 ? (
                     <Box
                       sx={{
                         display: 'flex',
@@ -104,8 +104,8 @@ const Home = () => {
               </CardContent>
               <CardContent>
                 <Stack direction="row" spacing={20}>
-                  
-                  {!name.length>0 ? (
+
+                  {!name.length > 0 ? (
                     <Box
                       sx={{
                         display: 'flex',
@@ -131,6 +131,32 @@ const Home = () => {
             </Card>
           </Grid>
 
+          <Compare />
+
+          <Grid item xs={12} md={6} lg={6}>
+            <AppTrafficBySite
+              title="Governance"
+              list={[
+                {
+                  name: 'Grants Given',
+                  value: 6,
+                  color: "warning"
+                },
+                {
+                  name: 'Integrations',
+                  value: 11,
+                },
+                {
+                  name: 'Delegates',
+                  value: 17,
+                },
+                {
+                  name: 'Votes',
+                  value: 54,
+                },
+              ]}
+            />
+          </Grid>
           {/* <TopChannelsView /> */}
           {/* <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits
@@ -204,7 +230,7 @@ const Home = () => {
 
           <NotificationsWeeklyCount />
 
-          <Compare />
+          {/* <Compare /> */}
 
           {/* <Grid item xs={12} md={6} lg={6}>
             <AppWebsiteVisits
@@ -223,32 +249,9 @@ const Home = () => {
             />
           </Grid> */}
 
-          {/* <Grid item xs={12} md={6} lg={6}>
-            <AppTrafficBySite
-              title="Governance"
-              list={[
-                {
-                  name: 'Grants Given',
-                  value: 6,
-                },
-                {
-                  name: 'Integrations',
-                  value: 11,
-                },
-                {
-                  name: 'Delegates',
-                  value: 17,
-                },
-                {
-                  name: 'Votes',
-                  value: 54,
-                },
-              ]}
-            />
-          </Grid> */}
         </Grid>
 
-        {/* <Typography variant="h5" sx={{ my: 5 }}>
+        <Typography variant="h5" sx={{ my: 5 }}>
           Generating value for dApps, developers and users
         </Typography>
 
@@ -280,7 +283,7 @@ const Home = () => {
               </CardContent>
             </Card>
           </Grid>
-        </Grid> */}
+        </Grid> 
       </Container>
     </Layout>
   );
