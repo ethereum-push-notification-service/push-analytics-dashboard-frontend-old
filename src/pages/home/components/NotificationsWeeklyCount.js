@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Grid, Card, CardHeader, Box, CircularProgress } from '@mui/material';
 import ReactApexChart from 'react-apexcharts';
 import BaseOptionChart from 'components/chart';
-import { getNotificationsPerWeek, } from 'utils/api';
+import { getNotificationsPerWeek } from 'utils/api';
 import dayjs from 'dayjs';
 import _ from 'lodash';
 
@@ -40,7 +40,7 @@ const NotificationsWeeklyCount = () => {
       name: '',
       type: 'column',
       fill: 'solid',
-      color: '#860486',
+      color: '#E52F71',
       data,
     },
   ];
@@ -55,7 +55,7 @@ const NotificationsWeeklyCount = () => {
       y: {
         formatter: (y) => {
           if (typeof y !== 'undefined') {
-            return y.toFixed(0);
+            return y?.toFixed(0);
           }
           return y;
         },

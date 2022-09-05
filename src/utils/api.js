@@ -56,8 +56,8 @@ export const pushTradingVolume = async () => {
 
 export const PUSHPrice = async () => {
   try {
-    const response = await axios.post(`${API_URL}/PUSHPrice`);
-
+    const response = await axios.post(`${API_URL}/get_push_btc_price`);
+    console.log(response)
     return response.data;
   } catch (error) {
     return error.response.data;
@@ -138,11 +138,11 @@ export const getChannelsPerWeek = async () => {
   }
 };
 
-// Total Notifications 
+// Total Notifications
 
 export const getTotalNotifications = async () => {
   try {
-    const response = await axios.post(`${API_URL}/feeds/get_notifs_sent`);
+    const response = await axios.post(`${API_URL}/get_notifs_sent`);
 
     return response.data;
   } catch (error) {
@@ -150,11 +150,11 @@ export const getTotalNotifications = async () => {
   }
 };
 
-// Total Notifications 
+// Total Notifications
 
 export const getNotificationsPerWeek = async () => {
   try {
-    const response = await axios.post(`${API_URL}/feeds/get_total_notifs_sent_nweeks`);
+    const response = await axios.post(`${API_URL}/get_total_notif_nweeks`);
 
     return response.data;
   } catch (error) {

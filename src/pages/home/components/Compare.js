@@ -23,9 +23,9 @@ const Compare = () => {
   useEffect(() => {
     (async () => {
       const pushResponse = await PUSHPrice();
-      
+
       setPush(convertDataValueToArray(pushResponse.push).slice(-7));
-      
+
       setBtc(convertDataValueToArray(pushResponse.btc).slice(-7));
 
       setLoading(false);
@@ -45,62 +45,61 @@ const Compare = () => {
       fill: 'solid',
       data: btc,
     },
-  ]
+  ];
 
   const chartOptions = _.merge(BaseOptionChart(), {
     plotOptions: { bar: { columnWidth: '16%' } },
     xaxis: {
       categories: _.reverse(formattedDates),
     },
-    yaxis: [{
-      seriesName: 'PUSH',
-      min: Math.min(...push),
-      max: Math.max(...push),
-      axisTicks: {
-        show: true,
+    yaxis: [
+      {
+        seriesName: 'PUSH',
+        min: Math.min(...push),
+        max: Math.max(...push),
+        axisTicks: {
+          show: true,
+        },
+        labels: {
+          style: {
+            colors: 'rgb(229,47,113)',
+          },
+        },
+        title: {
+          style: {
+            color: 'rgb(229,47,113)',
+          },
+        },
+        tooltip: {
+          enabled: true,
+        },
       },
-      labels: {
-        style: {
-          colors: 'rgb(229,47,113)',
-        }
+      {
+        seriesName: 'BTC',
+        opposite: true,
+        min: Math.min(...btc),
+        max: Math.max(...btc),
+        axisTicks: {
+          show: true,
+        },
+        labels: {
+          style: {
+            colors: 'rgb(134,0,134)',
+          },
+        },
+        title: {
+          style: {
+            color: 'rgb(134,0,134)',
+          },
+        },
       },
-      title: {
-        style: {
-          color: 'rgb(229,47,113)',
-        }
-      },
-      tooltip: {
-        enabled: true
-      }
-    },
-    {
-      seriesName: 'BTC',
-      opposite: true,
-      min: Math.min(...btc),
-      max: Math.max(...btc),
-      axisTicks: {
-        show: true,
-      },
-      labels: {
-        style: {
-          colors: 'rgb(134,0,134)',
-        }
-      },
-      title: {
-        style: {
-          color: 'rgb(134,0,134)',
-        }
-      },
-    },
-  ],
+    ],
   });
 
   return (
     <Grid item xs={12} md={6} lg={6}>
       <Card>
-        <CardHeader
-          title={`$PUSH compared to BTC`}
-        />
+        <CardHeader title={`$PUSH compared to BTC`} />
 
         {loading ? (
           <Box

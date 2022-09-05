@@ -8,15 +8,17 @@ import {
   pushTradingVolume,
   topChannels,
 } from 'utils/api';
-import { AppWidgetSummary } from './components';
-import AppTrafficBySite from './components/AppTrafficBySite';
-import SubscribersWeeklyCount from './components/SubscribersWeeklyCount';
-import ChannelsPerWeek from './components/ChannelsPerWeek';
-import NotificationsWeeklyCount from './components/NotificationsWeeklyCount';
-import Compare from './components/Compare';
+import {
+  AppWidgetSummary,
+  AppTrafficBySite,
+  UsersData,
+  SubscribersWeeklyCount,
+  ChannelsPerWeek,
+  NotificationsWeeklyCount,
+  Compare,
+} from './components';
 
 const Home = () => {
-
   const [channelsCount, setChannelsCount] = useState(0);
   const [subscriberCount, setSubscriberCount] = useState(0);
   const [totalNotifications, setTotalNotifications] = useState(0);
@@ -29,7 +31,7 @@ const Home = () => {
       setSubscriberCount(await getTotalNumberOfSubscribers());
       setTotalNotifications(await getTotalNotifications());
       setPushTrading(await pushTradingVolume());
-      setName((await topChannels()).channels)
+      setName((await topChannels()).channels);
     })();
   }, []);
 
@@ -68,7 +70,12 @@ const Home = () => {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="$PUSH Trading Volume" total={pushTrading} color="error" icon={'ant-design:bug-filled'} />
+            <AppWidgetSummary
+              title="$PUSH Trading Volume"
+              total={pushTrading}
+              color="error"
+              icon={'ant-design:bug-filled'}
+            />
           </Grid>
 
           {/* <TopChannelsView /> */}
@@ -79,7 +86,6 @@ const Home = () => {
               </Typography>
               <CardContent>
                 <Stack direction="row" spacing={20}>
-
                   {!name.length > 0 ? (
                     <Box
                       sx={{
@@ -104,7 +110,6 @@ const Home = () => {
               </CardContent>
               <CardContent>
                 <Stack direction="row" spacing={20}>
-
                   {!name.length > 0 ? (
                     <Box
                       sx={{
@@ -127,7 +132,6 @@ const Home = () => {
                   )}
                 </Stack>
               </CardContent>
-
             </Card>
           </Grid>
 
@@ -140,7 +144,6 @@ const Home = () => {
                 {
                   name: 'Grants Given',
                   value: 6,
-                  color: "warning"
                 },
                 {
                   name: 'Integrations',
@@ -198,8 +201,6 @@ const Home = () => {
             />
           </Grid> */}
 
-
-
           {/* <Grid item xs={12} md={6} lg={4}>
             <AppCurrentVisits
               title="Total Users by Platform"
@@ -248,20 +249,21 @@ const Home = () => {
               ]}
             />
           </Grid> */}
-
         </Grid>
 
         <Typography variant="h5" sx={{ my: 5 }}>
           Generating value for dApps, developers and users
         </Typography>
-
         <Grid container spacing={3}>
+          <Grid container direction="row" justifyContent="center" alignItems="center" gap={10}>
+            <UsersData value={60} color={'#62509A'} />
+            <UsersData value={30} color={'#7A1E81'} />
+          </Grid>
           <Grid item xs={12} md={12} lg={12}>
             <Card sx={{ px: 1 }}>
               <CardContent>
-                <Stack direction="row" spacing={7}>
+                <Stack direction="row" spacing={7} alignItems="center">
                   <Box component="img" src="/static/ens-logo.svg" sx={{ width: 120, height: 50 }} />
-
                   <Typography variant="h5" sx={{ mt: 10 }}>
                     500 domain names saved from expiring EPNS
                   </Typography>
@@ -273,7 +275,7 @@ const Home = () => {
           <Grid item xs={12} md={12} lg={12}>
             <Card sx={{ px: 1 }}>
               <CardContent>
-                <Stack direction="row" spacing={7}>
+                <Stack direction="row" spacing={7} alignItems="center">
                   <Box component="img" src="/static/aave-logo.svg" sx={{ width: 120, height: 50 }} />
 
                   <Typography variant="h5" sx={{ mt: 10 }}>
@@ -283,11 +285,10 @@ const Home = () => {
               </CardContent>
             </Card>
           </Grid>
-        </Grid> 
+        </Grid>
       </Container>
     </Layout>
   );
 };
 
 export default Home;
- 
