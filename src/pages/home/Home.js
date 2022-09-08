@@ -79,14 +79,14 @@ const Home = () => {
           </Grid>
 
           {/* <TopChannelsView /> */}
-          <Grid item xs={12} md={6} lg={12}>
+          <Grid item xs={12} md={12} lg={12}>
             <Card>
               <Typography variant="h4" sx={{ mt: 4, mr: 4, ml: 4, mb: 4 }}>
                 <center> Top Channels on EPNS</center>
               </Typography>
               <CardContent>
                 <Stack direction="row" spacing={20}>
-                  {!name.length > 0 ? (
+                  {!name?.length > 0 ? (
                     <Box
                       sx={{
                         display: 'flex',
@@ -110,7 +110,7 @@ const Home = () => {
               </CardContent>
               <CardContent>
                 <Stack direction="row" spacing={20}>
-                  {!name.length > 0 ? (
+                  {!name?.length > 0 ? (
                     <Box
                       sx={{
                         display: 'flex',
@@ -224,7 +224,7 @@ const Home = () => {
           Growing at 10x rate
         </Typography>
 
-        <Grid container spacing={3}>
+        <Grid container spacing={3} justifyContent="center">
           <SubscribersWeeklyCount />
 
           <ChannelsPerWeek />
@@ -255,9 +255,9 @@ const Home = () => {
           Generating value for dApps, developers and users
         </Typography>
         <Grid container spacing={3}>
-          <Grid container direction="row" justifyContent="center" alignItems="center" gap={10}>
-            <UsersData value={60} color={'#62509A'} />
-            <UsersData value={30} color={'#7A1E81'} />
+          <Grid container direction="row" justifyContent="center" alignItems="center">
+            <UsersData value={60} color={'#62509A'} name="View Rate" />
+            <UsersData value={30} color={'#7A1E81'} name="Click Through Rate" />
           </Grid>
           <Grid item xs={12} md={12} lg={12}>
             <Card sx={{ px: 1 }}>

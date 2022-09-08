@@ -37,15 +37,66 @@ const Compare = () => {
       name: 'PUSH',
       type: 'line',
       fill: 'solid',
+      color: '#E52F71',
       data: push,
     },
     {
       name: 'BTC',
       type: 'line',
       fill: 'solid',
+      color: '#64C1E9',
       data: btc,
     },
   ];
+
+  // const chartOptions = _.merge(BaseOptionChart(), {
+  //   plotOptions: { bar: { columnWidth: '16%' } },
+  //   xaxis: {
+  //     categories: _.reverse(formattedDates),
+  //   },
+  //   yaxis: [
+  //     {
+  //       seriesName: 'PUSH',
+  //       min: Math.min(...push),
+  //       max: Math.max(...push),
+  //       axisTicks: {
+  //         show: true,
+  //       },
+  //       labels: {
+  //         style: {
+  //           colors: 'rgb(229,47,113)',
+  //         },
+  //       },
+  //       title: {
+  //         style: {
+  //           color: 'rgb(229,47,113)',
+  //         },
+  //       },
+  //       tooltip: {
+  //         enabled: true,
+  //       },
+  //     },
+  //     {
+  //       seriesName: 'BTC',
+  //       opposite: true,
+  //       min: Math.min(...btc),
+  //       max: Math.max(...btc),
+  //       axisTicks: {
+  //         show: true,
+  //       },
+  //       labels: {
+  //         style: {
+  //           colors: 'rgb(134,0,134)',
+  //         },
+  //       },
+  //       title: {
+  //         style: {
+  //           color: 'rgb(134,0,134)',
+  //         },
+  //       },
+  //     },
+  //   ],
+  // });
 
   const chartOptions = _.merge(BaseOptionChart(), {
     plotOptions: { bar: { columnWidth: '16%' } },
@@ -62,12 +113,12 @@ const Compare = () => {
         },
         labels: {
           style: {
-            colors: 'rgb(229,47,113)',
+            colors: '#E52F71',
           },
         },
         title: {
           style: {
-            color: 'rgb(229,47,113)',
+            color: '#E52F71',
           },
         },
         tooltip: {
@@ -84,12 +135,12 @@ const Compare = () => {
         },
         labels: {
           style: {
-            colors: 'rgb(134,0,134)',
+            colors: '#64C1E9',
           },
         },
         title: {
           style: {
-            color: 'rgb(134,0,134)',
+            color: '#64C1E9',
           },
         },
       },
@@ -116,6 +167,7 @@ const Compare = () => {
           </Box>
         ) : (
           <Box sx={{ p: 3, pb: 1 }} dir="ltr">
+            {/* <ReactApexChart type="line" series={chartData} options={chartOptions} height={364} /> */}
             <ReactApexChart type="line" series={chartData} options={chartOptions} height={364} />
           </Box>
         )}

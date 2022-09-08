@@ -57,7 +57,7 @@ export const pushTradingVolume = async () => {
 export const PUSHPrice = async () => {
   try {
     const response = await axios.post(`${API_URL}/get_push_btc_price`);
-    console.log(response)
+
     return response.data;
   } catch (error) {
     return error.response.data;
@@ -158,6 +158,37 @@ export const getNotificationsPerWeek = async () => {
 
     return response.data;
   } catch (error) {
+    return error.response.data;
+  }
+};
+
+// export const topChannels = async () => {
+//   try {
+//     const response = await axios.post(`${API_URL}/channels/get_topn_channels`);
+//     console.log('top', response);
+//     return response.data;
+//   } catch (error) {
+//     console.log('top', error);
+//     return error.response.data;
+//   }
+// };
+
+const data = JSON.stringify({
+  query: '',
+  op: 'read',
+  address: '',
+  chainId: 42,
+  page: 1,
+  pageSize: 10,
+});
+
+export const topChannels = async () => {
+  try {
+    const response = await axios.post('https://backend-kovan.epns.io/apis/channels/search', { data });
+    console.log('top', response);
+    return response.data;
+  } catch (error) {
+    console.log('top', error);
     return error.response.data;
   }
 };
