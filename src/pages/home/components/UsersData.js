@@ -23,14 +23,17 @@ export default function UsersData(props) {
         endAngle: 130,
         offsetX: 0,
         offsetY: 0,
-        track: {
-          show: true,
-          startAngle: undefined,
-          endAngle: undefined,
-          background: '#f2f2f2',
-          strokeWidth: '100%',
-          opacity: 1,
+        hollow: {
           margin: 0,
+          size: '40%',
+          background: 'transparent',
+          image: undefined,
+          imageWidth: 150,
+          imageHeight: 150,
+          imageOffsetX: 0,
+          imageOffsetY: 0,
+          imageClipped: true,
+          position: 'front',
           dropShadow: {
             enabled: false,
             top: 0,
@@ -43,29 +46,93 @@ export default function UsersData(props) {
           show: true,
           name: {
             show: true,
-            fontSize: '22px',
-            fontFamily: undefined,
-            color: undefined,
             offsetY: 11,
           },
           value: {
             show: true,
             fontSize: '16px',
+            fontWeight: 600,
             fontFamily: undefined,
-            color: undefined,
+            color: '#000000',
             offsetY: -25,
-            formatter: (val) => val,
+            formatter: (val) => `${val}%`,
           },
           total: {
             show: true,
-            // props.name.length > 10 ? props.name.split(' ') : props.name,
-            label: props.name,
+            label: props.name.length > 10 ? [firstChunk, secondChunk] : props.name,
+            fontSize: props.name.length > 10 ? '12px' : '16px',
             color: '#000000',
-            formatter: (w) => `${w.globals.seriesTotals.reduce((a, b) => a + b, 0) / w.globals.series.length}%`,
           },
         },
       },
     },
+    // plotOptions: {
+    //   radialBar: {
+    //     inverseOrder: false,
+    //     startAngle: -230,
+    //     endAngle: 130,
+    //     offsetX: 0,
+    //     offsetY: 0,
+    //     hollow: {
+    //       margin: 0,
+    //       size: '50%',
+    //       background: 'transparent',
+    //       image: undefined,
+    //       imageWidth: 150,
+    //       imageHeight: 150,
+    //       imageOffsetX: 0,
+    //       imageOffsetY: 0,
+    //       imageClipped: true,
+    //       position: 'front',
+    //       dropShadow: {
+    //         enabled: false,
+    //         top: 0,
+    //         left: 0,
+    //         blur: 3,
+    //         opacity: 0.5,
+    //       },
+    //     },
+    //     dataLabels: {
+    //       show: true,
+    //       name: {
+    //         show: true,
+    //         fontSize: '16px',
+    //         fontFamily: undefined,
+    //         fontWeight: 600,
+    //         color: undefined,
+    //         offsetY: -10,
+    //       },
+    //       value: {
+    //         show: true,
+    //         fontSize: '14px',
+    //         fontFamily: undefined,
+    //         fontWeight: 400,
+    //         color: undefined,
+    //         offsetY: 16,
+    //         formatter: function (val) {
+    //           return val + '%';
+    //         },
+    //       },
+    //       total: {
+    //         show: false,
+    //         label: 'Total',
+    //         color: '#373d3f',
+    //         fontSize: '16px',
+    //         fontFamily: undefined,
+    //         fontWeight: 600,
+    //         formatter: function (w) {
+    //           return (
+    //             w.globals.seriesTotals.reduce((a, b) => {
+    //               return a + b;
+    //             }, 0) /
+    //               w.globals.series.length +
+    //             '%'
+    //           );
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
     legend: {
       show: false,
     },
