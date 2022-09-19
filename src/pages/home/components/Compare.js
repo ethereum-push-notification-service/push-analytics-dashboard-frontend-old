@@ -161,6 +161,7 @@ const Compare = () => {
               textAlign: 'center',
               justifyContent: 'center',
               alignItems: 'center',
+              margin: 'auto',
             }}
           >
             <CircularProgress size={50} />

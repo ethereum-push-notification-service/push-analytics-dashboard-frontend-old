@@ -34,6 +34,7 @@ const Home = () => {
       setName((await topChannels()).channels);
     })();
   }, []);
+  console.log('top', name);
 
   return (
     <Layout title="Dashboard">
@@ -80,12 +81,37 @@ const Home = () => {
 
           {/* <TopChannelsView /> */}
           <Grid item xs={12} md={12} lg={12}>
-            <Card>
+            <Card sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row', md: 'row' }, alignItems: 'center' }}>
               <Typography variant="h4" sx={{ mt: 4, mr: 4, ml: 4, mb: 4 }}>
                 <center> Top Channels on EPNS</center>
               </Typography>
               <CardContent>
-                <Stack direction="row" spacing={20}>
+                <Stack direction="row" spacing={{ xs: 3, sm: 10, md: 22 }}>
+                  {!name?.length > 0 ? (
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        width: '100%',
+                        textAlign: 'center',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        margin: 'auto',
+                      }}
+                    >
+                      <CircularProgress size={50} />
+                    </Box>
+                  ) : (
+                    <>
+                      <Box component="img" src={name[0]?.icon} sx={{ width: 75, height: 75 }} />
+                      <Box component="img" src={name[1]?.icon} sx={{ width: 75, height: 75 }} />
+                      <Box component="img" src={name[2]?.icon} sx={{ width: 75, height: 75 }} />
+                      {/* <Box component="img" src={name[3]?.icon} sx={{ width: 150, height: 100 }} /> */}
+                    </>
+                  )}
+                </Stack>
+              </CardContent>
+              {/* <CardContent>
+                <Stack direction="row" spacing={5}>
                   {!name?.length > 0 ? (
                     <Box
                       sx={{
@@ -100,38 +126,14 @@ const Home = () => {
                     </Box>
                   ) : (
                     <>
-                      <Box component="img" src={name[0].icon} sx={{ width: 150, height: 100 }} />
-                      <Box component="img" src={name[1].icon} sx={{ width: 150, height: 100 }} />
-                      <Box component="img" src={name[2].icon} sx={{ width: 150, height: 100 }} />
-                      <Box component="img" src={name[3].icon} sx={{ width: 150, height: 100 }} />
+                      <Box component="img" src={name[4]?.icon} sx={{ width: 150, height: 100 }} />
+                      <Box component="img" src={name[5]?.icon} sx={{ width: 150, height: 100 }} />
+                      <Box component="img" src={name[6]?.icon} sx={{ width: 150, height: 100 }} />
+                      <Box component="img" src={name[7]?.icon} sx={{ width: 150, height: 100 }} />
                     </>
                   )}
                 </Stack>
-              </CardContent>
-              <CardContent>
-                <Stack direction="row" spacing={20}>
-                  {!name?.length > 0 ? (
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        width: '100%',
-                        textAlign: 'center',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                      }}
-                    >
-                      <CircularProgress size={50} />
-                    </Box>
-                  ) : (
-                    <>
-                      <Box component="img" src={name[5].icon} sx={{ width: 150, height: 100 }} />
-                      <Box component="img" src={name[6].icon} sx={{ width: 150, height: 100 }} />
-                      <Box component="img" src={name[7].icon} sx={{ width: 150, height: 100 }} />
-                      <Box component="img" src={name[8].icon} sx={{ width: 150, height: 100 }} />
-                    </>
-                  )}
-                </Stack>
-              </CardContent>
+              </CardContent> */}
             </Card>
           </Grid>
 
@@ -142,20 +144,24 @@ const Home = () => {
               title="Governance"
               list={[
                 {
+                  name: 'Grants Approved',
+                  value: 4,
+                  color: '#7A1E81',
+                },
+                {
                   name: 'Grants Given',
-                  value: 6,
+                  value: '$40K',
+                  color: '#E52F71',
                 },
                 {
-                  name: 'Integrations',
-                  value: 11,
+                  name: 'Proposals Received',
+                  value: 20,
+                  color: '#62509A',
                 },
                 {
-                  name: 'Delegates',
-                  value: 17,
-                },
-                {
-                  name: 'Votes',
-                  value: 54,
+                  name: 'PIPS',
+                  value: 10,
+                  color: '#64C1E9',
                 },
               ]}
             />

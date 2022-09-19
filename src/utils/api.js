@@ -173,22 +173,20 @@ export const getNotificationsPerWeek = async () => {
 //   }
 // };
 
-const data = JSON.stringify({
-  query: '',
-  op: 'read',
-  address: '',
-  chainId: 42,
+const data = {
   page: 1,
-  pageSize: 10,
-});
+  limit: 10,
+  query: '0x',
+  order: 'desc',
+};
 
 export const topChannels = async () => {
   try {
-    const response = await axios.post('https://backend-kovan.epns.io/apis/channels/search', { data });
+    const response = await axios.get('https://backend-dev.epns.io/apis/v1/channels/search', { params: data });
     console.log('top', response);
     return response.data;
   } catch (error) {
-    console.log('top', error);
+    // console.log('top', error);
     return error.response.data;
   }
 };
