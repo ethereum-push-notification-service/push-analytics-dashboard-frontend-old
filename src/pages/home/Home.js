@@ -80,13 +80,27 @@ const Home = () => {
           </Grid>
 
           {/* <TopChannelsView /> */}
-          <Grid item xs={12} md={12} lg={12}>
-            <Card sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row', md: 'row' }, alignItems: 'center' }}>
-              <Typography variant="h4" sx={{ mt: 4, mr: 4, ml: 4, mb: 4 }}>
-                <center> Top Channels on EPNS</center>
-              </Typography>
-              <CardContent>
-                <Stack direction="row" spacing={{ xs: 3, sm: 10, md: 22 }}>
+          <Grid item xs={12} sm={12} md={12}>
+            <Card
+              sx={{
+                display: 'flex',
+                flexDirection: { xs: 'column', sm: 'row', md: 'row' },
+                alignItems: 'center',
+              }}
+            >
+              <Grid xs={12} sm={4} md={4}>
+                <Typography variant="h4" sx={{ mt: 4, mr: 4, ml: 4, mb: 4 }}>
+                  <center> Top Channels on EPNS</center>
+                </Typography>
+              </Grid>
+              <Grid xs={12} sm={8} md={8}>
+                <Stack
+                  direction="row"
+                  justifyContent="space-around"
+                  flexWrap="wrap"
+                  gap={3}
+                  mb={{ xs: 3, sm: 0, md: 0 }}
+                >
                   {!name?.length > 0 ? (
                     <Box
                       sx={{
@@ -97,43 +111,19 @@ const Home = () => {
                         alignItems: 'center',
                         margin: 'auto',
                       }}
+                      mb={{ xs: 3, sm: 0, md: 0 }}
                     >
                       <CircularProgress size={50} />
                     </Box>
                   ) : (
                     <>
-                      <Box component="img" src={name[0]?.icon} sx={{ width: 75, height: 75 }} />
-                      <Box component="img" src={name[1]?.icon} sx={{ width: 75, height: 75 }} />
-                      <Box component="img" src={name[2]?.icon} sx={{ width: 75, height: 75 }} />
-                      {/* <Box component="img" src={name[3]?.icon} sx={{ width: 150, height: 100 }} /> */}
+                      <Box component="img" src={name[0]?.icon} sx={{ width: 75, height: 75, borderRadius: '20%' }} />
+                      <Box component="img" src={name[1]?.icon} sx={{ width: 75, height: 75, borderRadius: '20%' }} />
+                      <Box component="img" src={name[2]?.icon} sx={{ width: 75, height: 75, borderRadius: '20%' }} />
                     </>
                   )}
                 </Stack>
-              </CardContent>
-              {/* <CardContent>
-                <Stack direction="row" spacing={5}>
-                  {!name?.length > 0 ? (
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        width: '100%',
-                        textAlign: 'center',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                      }}
-                    >
-                      <CircularProgress size={50} />
-                    </Box>
-                  ) : (
-                    <>
-                      <Box component="img" src={name[4]?.icon} sx={{ width: 150, height: 100 }} />
-                      <Box component="img" src={name[5]?.icon} sx={{ width: 150, height: 100 }} />
-                      <Box component="img" src={name[6]?.icon} sx={{ width: 150, height: 100 }} />
-                      <Box component="img" src={name[7]?.icon} sx={{ width: 150, height: 100 }} />
-                    </>
-                  )}
-                </Stack>
-              </CardContent> */}
+              </Grid>
             </Card>
           </Grid>
 
