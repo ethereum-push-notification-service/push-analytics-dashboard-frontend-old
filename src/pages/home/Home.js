@@ -255,7 +255,7 @@ const Home = () => {
             <UsersData value={60} color={'#62509A'} name="View Rate" />
             <UsersData value={30} color={'#7A1E81'} name="Click Through Rate" />
           </Grid>
-          <Grid item xs={12} md={12} lg={12}>
+          {/* <Grid item xs={12} md={12} lg={12}>
             <Card sx={{ px: 1 }}>
               <CardContent>
                 <Stack direction="row" spacing={7} alignItems="center">
@@ -280,7 +280,7 @@ const Home = () => {
                 </Stack>
               </CardContent>
             </Card>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
     </Layout>
