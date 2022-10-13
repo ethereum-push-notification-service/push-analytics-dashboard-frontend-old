@@ -101,8 +101,9 @@ function NavItem({ item, active }) {
       }}
     >
       <ListItemIconStyle>{icon && icon}</ListItemIconStyle>
-      <ListItemText disableTypography primary={title} />
-      {info && info}
+      <ListItemText disableTypography primary={title}>
+        {info && info}
+      </ListItemText>
     </ListItemStyle>
   );
 }

@@ -10,7 +10,7 @@ import { NavConfig } from './index';
 
 import { SidebarRootStyle, AccountStyle } from './styled';
 
-const DRAWER_WIDTH = 280;
+const DRAWER_WIDTH = 100;
 
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const { pathname } = useLocation();
@@ -28,7 +28,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
     <Scrollbar
       sx={{
         height: 1,
-        '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },
+        '& .simplebar-content': { height: 1, display: 'flex', alignItems: 'center', flexDirection: 'column' },
       }}
     >
       <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>

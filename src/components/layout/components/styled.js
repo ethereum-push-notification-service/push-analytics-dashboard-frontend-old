@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
 import { AppBar, Toolbar, ListItemIcon, ListItemButton } from '@mui/material';
 
-const DRAWER_WIDTH = 280;
+const DRAWER_WIDTH = 100;
 const APPBAR_MOBILE = 64;
 const APPBAR_DESKTOP = 92;
 
@@ -10,9 +10,9 @@ export const RootStyle = styled(AppBar)(({ theme }) => ({
   backdropFilter: 'blur(6px)',
   WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
   backgroundColor: 'white',
-  [theme.breakpoints.up('lg')]: {
-    width: `calc(100% - ${DRAWER_WIDTH + 1}px)`,
-  },
+  // [theme.breakpoints.up('lg')]: {
+  //   width: `calc(100% - ${DRAWER_WIDTH + 1}px)`,
+  // },
 }));
 
 export const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
@@ -32,6 +32,7 @@ export const SidebarRootStyle = styled('div')(({ theme }) => ({
 
 export const AccountStyle = styled('div')(({ theme }) => ({
   display: 'flex',
+  flexDirection: 'column',
   alignItems: 'center',
   padding: theme.spacing(2, 2.5),
   borderRadius: Number(theme.shape.borderRadius) * 1.5,
@@ -40,7 +41,9 @@ export const AccountStyle = styled('div')(({ theme }) => ({
 
 export const ListItemStyle = styled((props) => <ListItemButton disableGutters {...props} />)(({ theme }) => ({
   ...theme.typography.body2,
-  height: 48,
+  height: 'auto',
+  display: 'flex',
+  flexDirection: 'column',
   position: 'relative',
   textTransform: 'capitalize',
   color: theme.palette.text.secondary,

@@ -34,13 +34,12 @@ const Home = () => {
       setName((await topChannels()).channels);
     })();
   }, []);
-  console.log('top', name);
 
   return (
     <Layout title="Dashboard">
       <Container maxWidth="xl">
         <Typography variant="h5" sx={{ mb: 5 }}>
-          Ethereum Push Notification System is the biggest communication layer of web3 in the market.
+          Push Protocol is the biggest communication layer of web3 in the market.
         </Typography>
 
         <Grid container spacing={3}>
@@ -79,55 +78,51 @@ const Home = () => {
             />
           </Grid>
 
-          {/* <TopChannelsView /> */}
-          <Grid item xs={12} sm={12} md={12}>
-            <Card
-              sx={{
-                display: 'flex',
-                flexDirection: { xs: 'column', sm: 'row', md: 'row' },
-                alignItems: 'center',
-              }}
-            >
-              <Grid xs={12} sm={4} md={4}>
-                <Typography variant="h4" sx={{ mt: 4, mr: 4, ml: 4, mb: 4 }}>
-                  <center> Top Channels on EPNS</center>
-                </Typography>
-              </Grid>
-              <Grid xs={12} sm={8} md={8}>
-                <Stack
-                  direction="row"
-                  justifyContent="space-around"
-                  flexWrap="wrap"
-                  gap={3}
-                  mb={{ xs: 3, sm: 0, md: 0 }}
-                >
-                  {!name?.length > 0 ? (
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        width: '100%',
-                        textAlign: 'center',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        margin: 'auto',
-                      }}
-                      mb={{ xs: 3, sm: 0, md: 0 }}
-                    >
-                      <CircularProgress size={50} />
-                    </Box>
-                  ) : (
-                    <>
-                      <Box component="img" src={name[0]?.icon} sx={{ width: 75, height: 75, borderRadius: '20%' }} />
-                      <Box component="img" src={name[1]?.icon} sx={{ width: 75, height: 75, borderRadius: '20%' }} />
-                      <Box component="img" src={name[2]?.icon} sx={{ width: 75, height: 75, borderRadius: '20%' }} />
-                    </>
-                  )}
-                </Stack>
-              </Grid>
-            </Card>
+          <Typography variant="h5" sx={{ mt: 5, ml: 3 }}>
+            Generating value for dApps, developers and users
+          </Typography>
+          <Grid item xs={12} md={12} lg={12} sx={{ mb: 3 }}>
+            <Grid item xs={12} md={12} lg={12} sx={{ mb: 3 }}>
+              <Card sx={{ px: 1 }}>
+                <CardContent>
+                  <Stack direction="row" spacing={7} alignItems="center">
+                    <Box component="img" src="/static/ens-logo.svg" sx={{ width: 120, height: 50 }} />
+                    <Typography variant="h5" sx={{ mt: 10 }}>
+                      500 domain names saved from expiring using Push Protocol
+                    </Typography>
+                  </Stack>
+                </CardContent>
+              </Card>
+            </Grid>
+
+            <Grid item xs={12} md={12} lg={12}>
+              <Card sx={{ px: 1 }}>
+                <CardContent>
+                  <Stack direction="row" spacing={7} alignItems="center">
+                    <Box component="img" src="/static/aave-logo.svg" sx={{ width: 120, height: 50 }} />
+
+                    <Typography variant="h5" sx={{ mt: 10 }}>
+                      $10M saved from liquidation using Push Protocol
+                    </Typography>
+                  </Stack>
+                </CardContent>
+              </Card>
+            </Grid>
           </Grid>
 
           <Compare />
+        </Grid>
+
+        <Typography variant="h5" sx={{ mt: 5, mb: 3 }}>
+          Growing at 10x rate
+        </Typography>
+
+        <Grid container spacing={3} justifyContent="center">
+          <SubscribersWeeklyCount />
+
+          <ChannelsPerWeek />
+
+          <NotificationsWeeklyCount />
 
           <Grid item xs={12} md={6} lg={6}>
             <AppTrafficBySite
@@ -156,131 +151,67 @@ const Home = () => {
               ]}
             />
           </Grid>
+        </Grid>
+
+        <Grid container spacing={3} sx={{ mt: 5 }}>
           {/* <TopChannelsView /> */}
-          {/* <Grid item xs={12} md={6} lg={8}>
-            <AppWebsiteVisits
-              title="$PUSH compared to ETH and Matic"
-              subheader="(+43%) than last year"
-              chartLabels={[
-                '01/01/2003',
-                '02/01/2003',
-                '03/01/2003',
-                '04/01/2003',
-                '05/01/2003',
-                '06/01/2003',
-                '07/01/2003',
-                '08/01/2003',
-                '09/01/2003',
-                '10/01/2003',
-                '11/01/2003',
-              ]}
-              chartData={[
-                {
-                  name: 'PUSH',
-                  type: 'line',
-                  fill: 'solid',
-                  data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
-                },
-                {
-                  name: 'ETH',
-                  type: 'line',
-                  fill: 'solid',
-                  data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
-                },
-                {
-                  name: 'Matic',
-                  type: 'line',
-                  fill: 'solid',
-                  data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
-                },
-              ]}
-            />
-          </Grid> */}
-
-          {/* <Grid item xs={12} md={6} lg={4}>
-            <AppCurrentVisits
-              title="Total Users by Platform"
-              chartData={[
-                { label: 'dApp', value: 1 },
-                { label: 'iOS', value: 1 },
-                { label: 'Android', value: 1 },
-                { label: 'Browser Extension', value: 1 },
-              ]}
-              chartColors={[
-                theme.palette.primary.main,
-                theme.palette.chart.blue[0],
-                theme.palette.chart.violet[0],
-                theme.palette.chart.red[1],
-              ]}
-            />
-          </Grid> */}
+          <Grid item xs={12} sm={12} md={12}>
+            <Card
+              sx={{
+                display: 'flex',
+                flexDirection: { xs: 'column', sm: 'row', md: 'row' },
+                alignItems: 'center',
+              }}
+            >
+              <Grid item xs={12} sm={4} md={4}>
+                <Typography variant="h4" sx={{ mt: 4, mr: 4, ml: 4, mb: 4 }}>
+                  <center> Top Channels on Push Protocol</center>
+                </Typography>
+              </Grid>
+              <Grid item xs={12} sm={8} md={8}>
+                <Stack
+                  direction="row"
+                  justifyContent="space-around"
+                  flexWrap="wrap"
+                  gap={3}
+                  mb={{ xs: 3, sm: 0, md: 0 }}
+                >
+                  {!name?.length > 0 ? (
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        width: '100%',
+                        textAlign: 'center',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        margin: 'auto',
+                      }}
+                      mb={{ xs: 3, sm: 0, md: 0 }}
+                    >
+                      <CircularProgress size={50} />
+                    </Box>
+                  ) : (
+                    <>
+                      <Box component="img" src={name[0]?.icon} sx={{ width: 75, height: 75, borderRadius: '20%' }} />
+                      <Box component="img" src={name[1]?.icon} sx={{ width: 75, height: 75, borderRadius: '20%' }} />
+                      <Box component="img" src={name[2]?.icon} sx={{ width: 75, height: 75, borderRadius: '20%' }} />
+                      <Box component="img" src={name[3]?.icon} sx={{ width: 75, height: 75, borderRadius: '20%' }} />
+                      <Box component="img" src={name[4]?.icon} sx={{ width: 75, height: 75, borderRadius: '20%' }} />
+                    </>
+                  )}
+                </Stack>
+              </Grid>
+            </Card>
+          </Grid>
         </Grid>
 
-        <Typography variant="h5" sx={{ my: 5 }}>
-          Growing at 10x rate
-        </Typography>
-
-        <Grid container spacing={3} justifyContent="center">
-          <SubscribersWeeklyCount />
-
-          <ChannelsPerWeek />
-
-          <NotificationsWeeklyCount />
-
-          {/* <Compare /> */}
-
-          {/* <Grid item xs={12} md={6} lg={6}>
-            <AppWebsiteVisits
-              title={`Notification count:  ${dayjs(dates[dates.length - 1]).format('ddd, MMMM D')} - ${dayjs(
-                dates[0]
-              ).format('ddd, MMMM D')}`}
-              chartLabels={['Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun']}
-              chartData={[
-                {
-                  name: 'Week',
-                  type: 'column',
-                  fill: 'solid',
-                  data: [0, 0, 0, 0, 0, 0, 0],
-                },
-              ]}
-            />
-          </Grid> */}
-        </Grid>
-
-        <Typography variant="h5" sx={{ my: 5 }}>
+        {/* <Typography variant="h5" sx={{ my: 5 }}>
           Generating value for dApps, developers and users
-        </Typography>
-        <Grid container spacing={3}>
-          <Grid container direction="row" justifyContent="center" alignItems="center">
-            <UsersData value={60} color={'#62509A'} name="View Rate" />
-            <UsersData value={30} color={'#7A1E81'} name="Click Through Rate" />
-          </Grid>
-          {/* <Grid item xs={12} md={12} lg={12}>
-            <Card sx={{ px: 1 }}>
-              <CardContent>
-                <Stack direction="row" spacing={7} alignItems="center">
-                  <Box component="img" src="/static/ens-logo.svg" sx={{ width: 120, height: 50 }} />
-                  <Typography variant="h5" sx={{ mt: 10 }}>
-                    500 domain names saved from expiring EPNS
-                  </Typography>
-                </Stack>
-              </CardContent>
-            </Card>
-          </Grid>
+        </Typography> */}
 
-          <Grid item xs={12} md={12} lg={12}>
-            <Card sx={{ px: 1 }}>
-              <CardContent>
-                <Stack direction="row" spacing={7} alignItems="center">
-                  <Box component="img" src="/static/aave-logo.svg" sx={{ width: 120, height: 50 }} />
-
-                  <Typography variant="h5" sx={{ mt: 10 }}>
-                    $10M saved from liquidation using EPNS
-                  </Typography>
-                </Stack>
-              </CardContent>
-            </Card>
-          </Grid> */}
+        <Grid container direction="row" justifyContent="center" alignItems="center">
+          <UsersData value={60} color={'#62509A'} name="View Rate" />
+          <UsersData value={30} color={'#7A1E81'} name="Click Through Rate" />
         </Grid>
       </Container>
     </Layout>

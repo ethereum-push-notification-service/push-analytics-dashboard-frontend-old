@@ -183,10 +183,8 @@ const data = {
 export const topChannels = async () => {
   try {
     const response = await axios.get('https://backend-dev.epns.io/apis/v1/channels/search', { params: data });
-    console.log('top', response);
     return response.data;
   } catch (error) {
-    // console.log('top', error);
     return error.response.data;
   }
 };

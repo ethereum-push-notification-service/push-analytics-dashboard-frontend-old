@@ -8,21 +8,21 @@ import { RootStyle, ToolbarStyle } from './styled';
 const Navbar = ({ onOpenSidebar }) => (
   <RootStyle>
     <ToolbarStyle>
-      <IconButton onClick={onOpenSidebar} sx={{ mr: 1, color: 'text.primary', display: { lg: 'none' } }}>
+      {/* <IconButton onClick={onOpenSidebar} sx={{ mr: 1, color: 'text.primary', display: { lg: 'none' } }}>
         <Iconify icon="eva:menu-2-fill" />
-      </IconButton>
+      </IconButton> */}
 
-      <Logo src="/static/home-logo.svg" sx={{ width: 140, height: 120 }} />
+      <Logo src="/static/standard-push-logo.svg" sx={{ width: 140, height: 120 }} />
 
       <Box sx={{ flexGrow: 1 }} />
 
-      <IconButton
+      {/* <IconButton
         sx={{
           p: 0,
         }}
       >
         <Avatar src={account.photoURL} alt="photoURL" />
-      </IconButton>
+      </IconButton> */}
     </ToolbarStyle>
   </RootStyle>
 );

@@ -17,7 +17,7 @@ const Layout = forwardRef(({ children, title = '', meta, ...other }, ref) => {
 
       <RootStyle>
         <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
-        <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
+        {/* <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} /> */}
         <MainStyle>
           <Box ref={ref} {...other}>
             {children}
