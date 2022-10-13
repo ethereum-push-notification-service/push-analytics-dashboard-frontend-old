@@ -16,9 +16,9 @@ export const MainStyle = styled('div')(({ theme }) => ({
   },
 }));
 
-export const RootStyle = styled('div')({
+export const RootStyle = styled('div')(({ theme }) => ({
   display: 'flex',
   minHeight: '100%',
   overflow: 'hidden',
-  background: 'white',
-});
+  background: theme.palette.background.default,
+}));

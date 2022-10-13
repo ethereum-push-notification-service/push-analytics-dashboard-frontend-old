@@ -24,6 +24,8 @@ const Compare = () => {
     (async () => {
       const pushResponse = await PUSHPrice();
 
+      console.log('compare', pushResponse);
+
       setPush(convertDataValueToArray(pushResponse.push).slice(-7));
 
       setBtc(convertDataValueToArray(pushResponse.btc).slice(-7));

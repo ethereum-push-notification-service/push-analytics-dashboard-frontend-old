@@ -28,7 +28,6 @@ const GREY = {
   500_80: alpha('#919EAB', 0.8),
 };
 
-
 const PRIMARY = {
   lighter: '#E52F71',
   light: '#76B0F1',
@@ -93,13 +92,13 @@ const GRADIENTS = {
 
 const CHART_COLORS = {
   violet: ['#860486', 'rgb(103, 76, 159)', '#D0AEFF', '#F7D2FF'],
-  blue: ['#3EC3ED', '#83CFFF', '#A5F3FF', '#CCFAFF'],
+  blue: ['#3EC3ED', '#83CFFF', '#A5F3FF', '#CCFAFF', '#7A1E81'],
   green: ['#2CD9C5', '#60F1C8', '#A4F7CC', '#C0F2DC'],
   yellow: ['#860486', '#FFEF5A', '#FFF7AE', '#FFF3D6'],
   red: ['#FF6C40', '#FF8F6D', '#FFBD98', '#FFF2D4'],
 };
 
-const palette = {
+export const lightPalette = {
   common: { black: '#000', white: '#fff' },
   primary: { ...PRIMARY },
   secondary: { ...SECONDARY },
@@ -125,4 +124,28 @@ const palette = {
   },
 };
 
-export default palette;
+export const darkPalette = {
+  common: { black: '#000', white: '#fff' },
+  primary: { ...PRIMARY },
+  secondary: { ...SECONDARY },
+  info: { ...INFO },
+  success: { ...SUCCESS },
+  warning: { ...WARNING },
+  error: { ...ERROR },
+  grey: GREY,
+  gradients: GRADIENTS,
+  chart: CHART_COLORS,
+  divider: GREY[500_24],
+  text: { primary: GREY[400], secondary: GREY[600], disabled: GREY[500] },
+  background: { paper: '#3E4C59', default: '#1F2933', neutral: GREY[200] },
+  action: {
+    active: GREY[600],
+    hover: GREY[500_8],
+    selected: GREY[500_16],
+    disabled: GREY[500_80],
+    disabledBackground: GREY[500_24],
+    focus: GREY[500_24],
+    hoverOpacity: 0.08,
+    disabledOpacity: 0.48,
+  },
+};

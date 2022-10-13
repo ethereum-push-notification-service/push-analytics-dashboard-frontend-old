@@ -9,7 +9,7 @@ export const RootStyle = styled(AppBar)(({ theme }) => ({
   boxShadow: 'none',
   backdropFilter: 'blur(6px)',
   WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
-  backgroundColor: 'white',
+  backgroundColor: theme.palette.background.default,
   // [theme.breakpoints.up('lg')]: {
   //   width: `calc(100% - ${DRAWER_WIDTH + 1}px)`,
   // },

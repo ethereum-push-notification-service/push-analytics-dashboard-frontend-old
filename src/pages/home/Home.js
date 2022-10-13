@@ -38,7 +38,7 @@ const Home = () => {
   return (
     <Layout title="Dashboard">
       <Container maxWidth="xl">
-        <Typography variant="h5" sx={{ mb: 5 }}>
+        <Typography variant="h5" sx={{ my: 5 }}>
           Push Protocol is the biggest communication layer of web3 in the market.
         </Typography>
 
@@ -209,7 +209,7 @@ const Home = () => {
           Generating value for dApps, developers and users
         </Typography> */}
 
-        <Grid container direction="row" justifyContent="center" alignItems="center">
+        <Grid container direction="row" justifyContent="center" alignItems="center" margin="20px 0px">
           <UsersData value={60} color={'#62509A'} name="View Rate" />
           <UsersData value={30} color={'#7A1E81'} name="Click Through Rate" />
         </Grid>

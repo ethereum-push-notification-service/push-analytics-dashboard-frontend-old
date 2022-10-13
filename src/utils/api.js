@@ -155,6 +155,7 @@ export const getTotalNotifications = async () => {
 export const getNotificationsPerWeek = async () => {
   try {
     const response = await axios.post(`${API_URL}/get_total_notif_nweeks`);
+    console.log('res', response);
 
     return response.data;
   } catch (error) {

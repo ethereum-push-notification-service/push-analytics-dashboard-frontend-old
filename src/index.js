@@ -8,14 +8,17 @@ import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 ReactDOM.render(
   <Suspense fallback={<div />}>
-    <HelmetProvider>
-      <HashRouter>
-        <App />
-      </HashRouter>
-    </HelmetProvider>
+    <ThemeProvider>
+      <HelmetProvider>
+        <HashRouter>
+          <App />
+        </HashRouter>
+      </HelmetProvider>
+    </ThemeProvider>
   </Suspense>,
   document.getElementById('root')
 );
