@@ -205,11 +205,11 @@ const Home = () => {
           </Grid>
         </Grid>
 
-        {/* <Typography variant="h5" sx={{ my: 5 }}>
-          Generating value for dApps, developers and users
-        </Typography> */}
+        <Typography variant="h5" sx={{ mt: 5 }}>
+          User accessablity statistics
+        </Typography>
 
-        <Grid container direction="row" justifyContent="center" alignItems="center" margin="20px 0px">
+        <Grid container direction="row" justifyContent="center" alignItems="center">
           <UsersData value={60} color={'#62509A'} name="View Rate" />
           <UsersData value={30} color={'#7A1E81'} name="Click Through Rate" />
         </Grid>

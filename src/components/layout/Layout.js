@@ -11,7 +11,7 @@ const Layout = forwardRef(({ children, title = '', meta, ...other }, ref) => {
   return (
     <Box>
       <Helmet>
-        <title>{`${title} | EPNS`}</title>
+        <title>{`${title} | Push Protocol`}</title>
         {meta}
       </Helmet>
 

@@ -23,7 +23,7 @@ const NotificationsWeeklyCount = () => {
     const d = new Date();
     d.setDate(d.getDate() - i * 7);
 
-    return dayjs(d.toISOString()).format('ddd, MMMM D');
+    return dayjs(d.toISOString()).format('D MMM');
   });
 
   useEffect(() => {
