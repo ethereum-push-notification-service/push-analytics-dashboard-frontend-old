@@ -8,15 +8,17 @@ import {
   pushTradingVolume,
   topChannels,
 } from 'utils/api';
-import { AppWidgetSummary } from './components';
-import AppTrafficBySite from './components/AppTrafficBySite';
-import SubscribersWeeklyCount from './components/SubscribersWeeklyCount';
-import ChannelsPerWeek from './components/ChannelsPerWeek';
-import NotificationsWeeklyCount from './components/NotificationsWeeklyCount';
-import Compare from './components/Compare';
+import {
+  AppWidgetSummary,
+  AppTrafficBySite,
+  UsersData,
+  SubscribersWeeklyCount,
+  ChannelsPerWeek,
+  NotificationsWeeklyCount,
+  Compare,
+} from './components';
 
 const Home = () => {
-
   const [channelsCount, setChannelsCount] = useState(0);
   const [subscriberCount, setSubscriberCount] = useState(0);
   const [totalNotifications, setTotalNotifications] = useState(0);
@@ -29,9 +31,10 @@ const Home = () => {
       setSubscriberCount(await getTotalNumberOfSubscribers());
       setTotalNotifications(await getTotalNotifications());
       setPushTrading(await pushTradingVolume());
-      setName((await topChannels()).channels)
+      setName((await topChannels()).channels);
     })();
   }, []);
+  console.log('top', name);
 
   return (
     <Layout title="Dashboard">
@@ -68,19 +71,37 @@ const Home = () => {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="$PUSH Trading Volume" total={pushTrading} color="error" icon={'ant-design:bug-filled'} />
+            <AppWidgetSummary
+              title="$PUSH Trading Volume"
+              total={pushTrading}
+              color="error"
+              icon={'ant-design:bug-filled'}
+            />
           </Grid>
 
           {/* <TopChannelsView /> */}
-          <Grid item xs={12} md={6} lg={12}>
-            <Card>
-              <Typography variant="h4" sx={{ mt: 4, mr: 4, ml: 4, mb: 4 }}>
-                <center> Top Channels on EPNS</center>
-              </Typography>
-              <CardContent>
-                <Stack direction="row" spacing={20}>
-
-                  {!name.length > 0 ? (
+          <Grid item xs={12} sm={12} md={12}>
+            <Card
+              sx={{
+                display: 'flex',
+                flexDirection: { xs: 'column', sm: 'row', md: 'row' },
+                alignItems: 'center',
+              }}
+            >
+              <Grid xs={12} sm={4} md={4}>
+                <Typography variant="h4" sx={{ mt: 4, mr: 4, ml: 4, mb: 4 }}>
+                  <center> Top Channels on EPNS</center>
+                </Typography>
+              </Grid>
+              <Grid xs={12} sm={8} md={8}>
+                <Stack
+                  direction="row"
+                  justifyContent="space-around"
+                  flexWrap="wrap"
+                  gap={3}
+                  mb={{ xs: 3, sm: 0, md: 0 }}
+                >
+                  {!name?.length > 0 ? (
                     <Box
                       sx={{
                         display: 'flex',
@@ -88,46 +109,21 @@ const Home = () => {
                         textAlign: 'center',
                         justifyContent: 'center',
                         alignItems: 'center',
+                        margin: 'auto',
                       }}
+                      mb={{ xs: 3, sm: 0, md: 0 }}
                     >
                       <CircularProgress size={50} />
                     </Box>
                   ) : (
                     <>
-                      <Box component="img" src={name[0].icon} sx={{ width: 150, height: 100 }} />
-                      <Box component="img" src={name[1].icon} sx={{ width: 150, height: 100 }} />
-                      <Box component="img" src={name[2].icon} sx={{ width: 150, height: 100 }} />
-                      <Box component="img" src={name[3].icon} sx={{ width: 150, height: 100 }} />
+                      <Box component="img" src={name[0]?.icon} sx={{ width: 75, height: 75, borderRadius: '20%' }} />
+                      <Box component="img" src={name[1]?.icon} sx={{ width: 75, height: 75, borderRadius: '20%' }} />
+                      <Box component="img" src={name[2]?.icon} sx={{ width: 75, height: 75, borderRadius: '20%' }} />
                     </>
                   )}
                 </Stack>
-              </CardContent>
-              <CardContent>
-                <Stack direction="row" spacing={20}>
-
-                  {!name.length > 0 ? (
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        width: '100%',
-                        textAlign: 'center',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                      }}
-                    >
-                      <CircularProgress size={50} />
-                    </Box>
-                  ) : (
-                    <>
-                      <Box component="img" src={name[5].icon} sx={{ width: 150, height: 100 }} />
-                      <Box component="img" src={name[6].icon} sx={{ width: 150, height: 100 }} />
-                      <Box component="img" src={name[7].icon} sx={{ width: 150, height: 100 }} />
-                      <Box component="img" src={name[8].icon} sx={{ width: 150, height: 100 }} />
-                    </>
-                  )}
-                </Stack>
-              </CardContent>
-
+              </Grid>
             </Card>
           </Grid>
 
@@ -138,21 +134,24 @@ const Home = () => {
               title="Governance"
               list={[
                 {
+                  name: 'Grants Approved',
+                  value: 4,
+                  color: '#7A1E81',
+                },
+                {
                   name: 'Grants Given',
-                  value: 6,
-                  color: "warning"
+                  value: '$40K',
+                  color: '#E52F71',
                 },
                 {
-                  name: 'Integrations',
-                  value: 11,
+                  name: 'Proposals Received',
+                  value: 20,
+                  color: '#62509A',
                 },
                 {
-                  name: 'Delegates',
-                  value: 17,
-                },
-                {
-                  name: 'Votes',
-                  value: 54,
+                  name: 'PIPS',
+                  value: 10,
+                  color: '#64C1E9',
                 },
               ]}
             />
@@ -198,8 +197,6 @@ const Home = () => {
             />
           </Grid> */}
 
-
-
           {/* <Grid item xs={12} md={6} lg={4}>
             <AppCurrentVisits
               title="Total Users by Platform"
@@ -223,7 +220,7 @@ const Home = () => {
           Growing at 10x rate
         </Typography>
 
-        <Grid container spacing={3}>
+        <Grid container spacing={3} justifyContent="center">
           <SubscribersWeeklyCount />
 
           <ChannelsPerWeek />
@@ -248,20 +245,21 @@ const Home = () => {
               ]}
             />
           </Grid> */}
-
         </Grid>
 
         <Typography variant="h5" sx={{ my: 5 }}>
           Generating value for dApps, developers and users
         </Typography>
-
         <Grid container spacing={3}>
-          <Grid item xs={12} md={12} lg={12}>
+          <Grid container direction="row" justifyContent="center" alignItems="center">
+            <UsersData value={60} color={'#62509A'} name="View Rate" />
+            <UsersData value={30} color={'#7A1E81'} name="Click Through Rate" />
+          </Grid>
+          {/* <Grid item xs={12} md={12} lg={12}>
             <Card sx={{ px: 1 }}>
               <CardContent>
-                <Stack direction="row" spacing={7}>
+                <Stack direction="row" spacing={7} alignItems="center">
                   <Box component="img" src="/static/ens-logo.svg" sx={{ width: 120, height: 50 }} />
-
                   <Typography variant="h5" sx={{ mt: 10 }}>
                     500 domain names saved from expiring EPNS
                   </Typography>
@@ -273,7 +271,7 @@ const Home = () => {
           <Grid item xs={12} md={12} lg={12}>
             <Card sx={{ px: 1 }}>
               <CardContent>
-                <Stack direction="row" spacing={7}>
+                <Stack direction="row" spacing={7} alignItems="center">
                   <Box component="img" src="/static/aave-logo.svg" sx={{ width: 120, height: 50 }} />
 
                   <Typography variant="h5" sx={{ mt: 10 }}>
@@ -282,8 +280,8 @@ const Home = () => {
                 </Stack>
               </CardContent>
             </Card>
-          </Grid>
-        </Grid> 
+          </Grid> */}
+        </Grid>
       </Container>
     </Layout>
   );
