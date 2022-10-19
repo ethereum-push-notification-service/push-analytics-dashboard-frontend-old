@@ -101,7 +101,7 @@ const Login = () => {
               </FormControl>
             </Grid>
             <Grid item xs={12} lg={6} md={6}>
-              <Button variant="contained" type="submit">
+              <Button variant="outlined" type="submit">
                 Sign In
               </Button>
             </Grid>
