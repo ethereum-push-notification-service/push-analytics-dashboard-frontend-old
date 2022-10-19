@@ -7,6 +7,7 @@ import SubscribersWeeklyCount from './SubscribersWeeklyCount';
 import ChannelsPerWeek from './ChannelsPerWeek';
 import NotificationsWeeklyCount from './NotificationsWeeklyCount';
 import Compare from './Compare';
+import ApplicationStatistics from './ApplicationStatistics';
 
 export {
   AppCurrentVisits,
@@ -18,4 +19,5 @@ export {
   ChannelsPerWeek,
   NotificationsWeeklyCount,
   Compare,
+  ApplicationStatistics,
 };

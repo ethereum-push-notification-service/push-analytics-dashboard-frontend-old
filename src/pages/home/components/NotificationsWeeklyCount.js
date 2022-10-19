@@ -33,6 +33,10 @@ const NotificationsWeeklyCount = () => {
       setData(convertDataValueToArray(response).slice(-7));
       setLoading(false);
     })();
+    return () => {
+      setLoading(false);
+      setData([]);
+    };
   }, []);
 
   const chartData = [

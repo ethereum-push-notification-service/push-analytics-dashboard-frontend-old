@@ -1,16 +1,27 @@
 import { useState } from 'react';
-import { Box, IconButton, Avatar } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { Box, IconButton, Avatar, Button } from '@mui/material';
 import Iconify from 'components/iconify';
 import account from '_mock/account';
 import Logo from 'components/logo';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { useTheme } from 'contexts/ThemeContext';
-
+import { useData } from 'contexts/DataContext';
+import { ROUTES } from 'utils/constants';
 import { RootStyle, ToolbarStyle } from './styled';
+
 
 const Navbar = ({ onOpenSidebar }) => {
   // const [isDarkMode, setDarkMode] = useState(false);
   const { isDarkMode, darkModeToggle } = useTheme();
+  const { setIsLoggedIn } = useData();
+  const navigate = useNavigate();
+
+  const Logout = () => {
+    setIsLoggedIn(false);
+    localStorage.setItem('userLogin', false);
+    navigate(ROUTES.LOGIN);
+  };
 
   return (
     <RootStyle>
@@ -25,6 +36,8 @@ const Navbar = ({ onOpenSidebar }) => {
         />
 
         <Box sx={{ flexGrow: 1 }} />
+
+        <Button variant="outlined" onClick={Logout}>Logout</Button>
 
         <DarkModeSwitch
           style={{ margin: '0 1rem' }}

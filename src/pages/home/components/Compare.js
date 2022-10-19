@@ -31,6 +31,12 @@ const Compare = () => {
 
       setLoading(false);
     })();
+
+    return () => {
+      setLoading(false);
+      setPush([]);
+      setBtc([]);
+    };
   }, []);
 
   useEffect(() => {

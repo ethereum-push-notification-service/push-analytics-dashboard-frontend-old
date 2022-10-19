@@ -1,6 +1,3 @@
-// import CircularProgress from '@mui/material/CircularProgress';
-// import Typography from '@mui/material/Typography';
-// import Box from '@mui/material/Box';
 import ReactApexChart from 'react-apexcharts';
 import BaseOptionChart from 'components/chart';
 import { useTheme } from '@mui/material/styles';

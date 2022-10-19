@@ -9,14 +9,17 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from './contexts/ThemeContext';
+import { DataProvider } from './contexts/DataContext';
 
 ReactDOM.render(
   <Suspense fallback={<div />}>
     <ThemeProvider>
       <HelmetProvider>
-        <HashRouter>
-          <App />
-        </HashRouter>
+        <DataProvider>
+          <HashRouter>
+            <App />
+          </HashRouter>
+        </DataProvider>
       </HelmetProvider>
     </ThemeProvider>
   </Suspense>,

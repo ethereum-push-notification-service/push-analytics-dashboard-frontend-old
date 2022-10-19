@@ -16,6 +16,7 @@ import {
   ChannelsPerWeek,
   NotificationsWeeklyCount,
   Compare,
+  ApplicationStatistics,
 } from './components';
 
 const Home = () => {
@@ -33,6 +34,13 @@ const Home = () => {
       setPushTrading(await pushTradingVolume());
       setName((await topChannels()).channels);
     })();
+    return () => {
+      setChannelsCount(0);
+      setSubscriberCount(0);
+      setTotalNotifications(0);
+      setPushTrading(0);
+      setName([]);
+    };
   }, []);
 
   return (
@@ -111,6 +119,8 @@ const Home = () => {
           </Grid>
 
           <Compare />
+
+          {/* <ApplicationStatistics /> */}
         </Grid>
 
         <Typography variant="h5" sx={{ mt: 5, mb: 3 }}>
