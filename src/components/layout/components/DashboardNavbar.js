@@ -10,11 +10,10 @@ import { useData } from 'contexts/DataContext';
 import { ROUTES } from 'utils/constants';
 import { RootStyle, ToolbarStyle } from './styled';
 
-
 const Navbar = ({ onOpenSidebar }) => {
   // const [isDarkMode, setDarkMode] = useState(false);
   const { isDarkMode, darkModeToggle } = useTheme();
-  const { setIsLoggedIn } = useData();
+  const { isLoggedIn, setIsLoggedIn } = useData();
   const navigate = useNavigate();
 
   const Logout = () => {
@@ -22,7 +21,7 @@ const Navbar = ({ onOpenSidebar }) => {
     localStorage.setItem('userLogin', false);
     navigate(ROUTES.LOGIN);
   };
-
+  
   return (
     <RootStyle>
       <ToolbarStyle>
@@ -37,7 +36,11 @@ const Navbar = ({ onOpenSidebar }) => {
 
         <Box sx={{ flexGrow: 1 }} />
 
-        <Button variant="outlined" onClick={Logout}>Logout</Button>
+        {isLoggedIn && (
+          <Button variant="outlined" onClick={Logout}>
+            Logout
+          </Button>
+        )}
 
         <DarkModeSwitch
           style={{ margin: '0 1rem' }}

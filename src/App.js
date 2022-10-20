@@ -6,8 +6,8 @@ import ThemeProvider from './theme';
 
 const Home = lazy(() => import('pages/home'));
 const Page404 = lazy(() => import('pages/not-found'));
-const Login = lazy(() => import('pages/authentication/Login'));
-const Validate = lazy(() => import('./pages/authentication/Validate'));
+const Login = lazy(() => import('pages/Login/Login'));
+const RequireAuth = lazy(() => import('./components/RequireAuth/RequireAuth'));
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -29,9 +29,9 @@ export default function App() {
         <Route
           path={ROUTES.HOME}
           element={
-            <Validate>
+            <RequireAuth>
               <Home />
-            </Validate>
+            </RequireAuth>
           }
         />
         <Route path={ROUTES.ERROR} element={<Page404 />} />

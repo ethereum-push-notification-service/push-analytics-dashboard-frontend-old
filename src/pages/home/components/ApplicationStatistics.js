@@ -15,7 +15,7 @@ const ApplicationStatistics = () => {
     <Grid item xs={12} md={6} lg={6}>
       <Card>
         <CardHeader title={`Application Usage Statistics`} />
-        <Box sx={{ py: 9.1, display: 'flex', justifyContent: 'center' }} dir="ltr">
+        <Box sx={{ py: 5.4, display: 'flex', justifyContent: 'center' }} dir="ltr">
           <ReactApexChart type="pie" width={380} series={chartData} options={chartOptions} />
         </Box>
       </Card>

@@ -1,15 +1,12 @@
 import { useState, useContext, createContext, useEffect } from 'react';
 
-const defaultState = { isLoggedIn: true };
-
-const DataContext = createContext(defaultState);
+const DataContext = createContext(null);
 
 const DataProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
-    if (localStorage.getItem('userLogin')) {
-      setIsLoggedIn(true);
-    }
+    const loginHistory = localStorage.getItem('userLogin');
+    setIsLoggedIn(loginHistory);
   }, []);
 
   return <DataContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>{children}</DataContext.Provider>;

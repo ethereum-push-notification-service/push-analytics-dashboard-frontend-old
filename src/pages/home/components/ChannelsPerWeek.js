@@ -1,5 +1,16 @@
 import { useState, useEffect } from 'react';
-import { Grid, Box, CircularProgress, Card, CardHeader } from '@mui/material';
+import {
+  Grid,
+  Box,
+  CircularProgress,
+  Card,
+  CardHeader,
+  FormControl,
+  Radio,
+  FormControlLabel,
+  RadioGroup,
+  FormLabel,
+} from '@mui/material';
 import { getChannelsPerWeek } from 'utils/api';
 import dayjs from 'dayjs';
 import _ from 'lodash';
@@ -92,6 +103,17 @@ const ChannelsPerWeek = () => {
           </Box>
         ) : (
           <Box sx={{ p: 3, pb: 1 }} dir="ltr">
+            <Box>
+              <FormControl>
+                <FormLabel id="demo-row-radio-buttons-group-label">Filters</FormLabel>
+                <RadioGroup row aria-labelledby="demo-row-radio-buttons-group-label" name="row-radio-buttons-group">
+                  <FormControlLabel value="3day" control={<Radio />} label="Last 3 days" />
+                  <FormControlLabel value="5day" control={<Radio />} label="Last 5 days" />
+                  <FormControlLabel value="15day" control={<Radio />} label="Last 15 days" />
+                  <FormControlLabel value="30day" control={<Radio />} label="Last 30 days" />
+                </RadioGroup>
+              </FormControl>
+            </Box>
             <ReactApexChart type="line" series={chartData} options={chartOptions} height={364} />
           </Box>
         )}

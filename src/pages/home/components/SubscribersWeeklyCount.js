@@ -1,5 +1,16 @@
 import { useState, useEffect } from 'react';
-import { Grid, Card, CardHeader, Box, CircularProgress } from '@mui/material';
+import {
+  Grid,
+  Card,
+  CardHeader,
+  Box,
+  CircularProgress,
+  FormControl,
+  Radio,
+  FormControlLabel,
+  RadioGroup,
+  FormLabel
+} from '@mui/material';
 import ReactApexChart from 'react-apexcharts';
 import BaseOptionChart from 'components/chart';
 import { getSubscribersWeeklyCount } from 'utils/api';
@@ -11,6 +22,7 @@ const convertDataValueToArray = (data) => Object.values(data);
 const SubscribersWeeklyCount = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [time, setTime] = useState(30);
 
   const dates = [...Array(7)].map((_, i) => {
     const d = new Date();
@@ -33,7 +45,7 @@ const SubscribersWeeklyCount = () => {
       setData(convertDataValueToArray(response).slice(-7));
       setLoading(false);
     })();
-    
+
     return () => {
       setLoading(false);
       setData([]);
@@ -91,6 +103,17 @@ const SubscribersWeeklyCount = () => {
           </Box>
         ) : (
           <Box sx={{ p: 3, pb: 1 }} dir="ltr">
+            <Box>
+              <FormControl>
+                <FormLabel id="demo-row-radio-buttons-group-label">Filters</FormLabel>
+                <RadioGroup row aria-labelledby="demo-row-radio-buttons-group-label" name="row-radio-buttons-group">
+                  <FormControlLabel value="3day" control={<Radio />} label="Last 3 days" />
+                  <FormControlLabel value="5day" control={<Radio />} label="Last 5 days" />
+                  <FormControlLabel value="15day" control={<Radio />} label="Last 15 days" />
+                  <FormControlLabel value="30day" control={<Radio />} label="Last 30 days" />
+                </RadioGroup>
+              </FormControl>
+            </Box>
             <ReactApexChart type="line" series={chartData} options={chartOptions} height={364} />
           </Box>
         )}
