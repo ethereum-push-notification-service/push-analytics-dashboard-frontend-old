@@ -1,5 +1,16 @@
 import { useState, useEffect } from 'react';
-import { Grid, Card, CardHeader, Box, CircularProgress } from '@mui/material';
+import {
+  Grid,
+  Card,
+  CardHeader,
+  Box,
+  CircularProgress,
+  FormControl,
+  Radio,
+  FormControlLabel,
+  RadioGroup,
+  FormLabel,
+} from '@mui/material';
 import ReactApexChart from 'react-apexcharts';
 import BaseOptionChart from 'components/chart';
 import { getNotificationsPerWeek } from 'utils/api';
@@ -11,15 +22,16 @@ const convertDataValueToArray = (data) => Object.values(data);
 const NotificationsWeeklyCount = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [time, setTime] = useState(7);
 
-  const dates = [...Array(7)].map((_, i) => {
+  const dates = [...Array(time)].map((_, i) => {
     const d = new Date();
     d.setDate(d.getDate() - i * 7);
 
     return d.toISOString();
   });
 
-  const formattedDates = [...Array(7)].map((_, i) => {
+  const formattedDates = [...Array(time)].map((_, i) => {
     const d = new Date();
     d.setDate(d.getDate() - i * 7);
 
@@ -67,6 +79,10 @@ const NotificationsWeeklyCount = () => {
     },
   });
 
+  const handleChange = (event) => {
+    setTime(parseInt(event.target.value, 10));
+  };
+
   return (
     <Grid item xs={12} md={6} lg={6}>
       <Card>
@@ -91,6 +107,22 @@ const NotificationsWeeklyCount = () => {
           </Box>
         ) : (
           <Box sx={{ p: 3, pb: 1 }} dir="ltr">
+            <Box>
+              <FormControl>
+                <FormLabel id="demo-row-radio-buttons-group-label">Filters</FormLabel>
+                <RadioGroup
+                  row
+                  aria-labelledby="demo-row-radio-buttons-group-label"
+                  name="row-radio-buttons-group"
+                  onChange={handleChange}
+                >
+                  <FormControlLabel value="1" control={<Radio />} label="Last 1 week" />
+                  <FormControlLabel value="3" control={<Radio />} label="Last 3 week" />
+                  <FormControlLabel value="5" control={<Radio />} label="Last 5 week" />
+                  <FormControlLabel value="7" checked={time === 7} control={<Radio />} label="Last 7 week" />
+                </RadioGroup>
+              </FormControl>
+            </Box>
             <ReactApexChart type="line" series={chartData} options={chartOptions} height={364} />
           </Box>
         )}

@@ -19,7 +19,7 @@ export default function AppTrafficBySite({ title, subheader, list, ...other }) {
             <Paper
               key={site.name}
               variant="outlined"
-              sx={{ py: 5.73, textAlign: 'center', background: site.color, color: '#FFFFFF' }}
+              sx={{ py: 7.75, textAlign: 'center', background: site.color, color: '#FFFFFF' }}
             >
               <Box sx={{ mb: 0.5 }}>{site.icon}</Box>
 

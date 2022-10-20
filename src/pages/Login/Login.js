@@ -53,15 +53,14 @@ const Login = () => {
       localStorage.setItem('userLogin', true);
       navigate(ROUTES.HOME);
     } else {
-      setValues({ username: '', password: '' });
       alert('Please enter correct Username and Password');
     }
+    setValues({ username: '', password: '' });
   };
 
   return (
     <Layout title="Dashboard">
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '70vh' }}>
-        {/* <DashboardNavbar onOpenSidebar={() => setOpen(true)} /> */}
         <Paper>
           <Typography variant="h4" textAlign={'center'} mt={3}>
             Admin Sign In
