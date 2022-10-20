@@ -186,11 +186,11 @@ export default function BaseOptionChart() {
       // Pie + Donut
       pie: {
         donut: {
-          labels: {
-            show: true,
-            value: LABEL_VALUE,
-            total: LABEL_TOTAL,
-          },
+          // labels: {
+          //   show: true,
+          //   value: LABEL_VALUE,
+          //   total: LABEL_TOTAL,
+          // },
         },
       },
       // Radialbar

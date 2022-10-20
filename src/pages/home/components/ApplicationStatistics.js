@@ -6,21 +6,10 @@ import _ from 'lodash';
 const ApplicationStatistics = () => {
   const chartData = [35, 25, 40];
   const chartOptions = _.merge(BaseOptionChart(), {
-    
     labels: ['Extensions', 'Dapp', 'Mobile'],
-    responsive: [
-      {
-        breakpoint: 480,
-        options: {
-          chart: {
-            width: 200,
-          },
-          legend: {
-            position: 'bottom',
-          },
-        },
-      },
-    ],
+    dataLabels: {
+      enabled: true,
+    },
   });
   return (
     <Grid item xs={12} md={6} lg={6}>

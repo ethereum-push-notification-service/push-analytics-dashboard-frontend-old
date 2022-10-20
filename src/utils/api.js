@@ -35,7 +35,7 @@ export const getTotalNumberOfNotifications = async () => {
 export const getSubscribersWeeklyCount = async () => {
   try {
     const response = await axios.post(`${API_URL}/get_total_subscribers_count_weekly`);
-
+    
     return response.data;
   } catch (error) {
     return error.response.data;

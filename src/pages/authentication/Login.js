@@ -71,6 +71,7 @@ const Login = () => {
                 onChange={handleChange('username')}
                 label="Username"
                 variant="outlined"
+                autoComplete="off"
                 style={{ width: 257 }}
               />
             </Grid>
@@ -83,6 +84,7 @@ const Login = () => {
                   name="password"
                   type={values.showPassword ? 'text' : 'password'}
                   value={values.password}
+                  autoComplete="off"
                   onChange={handleChange('password')}
                   endAdornment={
                     <InputAdornment position="end">

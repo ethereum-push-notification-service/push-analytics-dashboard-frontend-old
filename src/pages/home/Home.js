@@ -120,7 +120,7 @@ const Home = () => {
 
           <Compare />
 
-          {/* <ApplicationStatistics /> */}
+          <ApplicationStatistics />
         </Grid>
 
         <Typography variant="h5" sx={{ mt: 5, mb: 3 }}>
