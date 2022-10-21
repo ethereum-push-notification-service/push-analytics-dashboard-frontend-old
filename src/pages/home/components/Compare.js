@@ -37,9 +37,9 @@ const Compare = () => {
     (async () => {
       const pushResponse = await PUSHPrice();
 
-      setPush(convertDataValueToArray(pushResponse.push).slice(-7));
+      setPush(convertDataValueToArray(pushResponse.push).slice(-time));
 
-      setBtc(convertDataValueToArray(pushResponse.btc).slice(-7));
+      setBtc(convertDataValueToArray(pushResponse.btc).slice(-time));
 
       setLoading(false);
     })();
@@ -49,7 +49,7 @@ const Compare = () => {
       setPush([]);
       setBtc([]);
     };
-  }, []);
+  }, [time]);
 
   useEffect(() => {
     setConverted([]);
@@ -206,6 +206,13 @@ const Compare = () => {
       //   },
       // },
     ],
+    chart: {
+      events: {
+        click: (event, chartContext, config) => {
+          console.log('clicked', config?.dataPointIndex + 1);
+        },
+      },
+    },
   });
 
   const handleChange = (event) => {

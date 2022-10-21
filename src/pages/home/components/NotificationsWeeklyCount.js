@@ -42,14 +42,14 @@ const NotificationsWeeklyCount = () => {
     (async () => {
       const response = await getNotificationsPerWeek();
 
-      setData(convertDataValueToArray(response).slice(-7));
+      setData(convertDataValueToArray(response).slice(-time));
       setLoading(false);
     })();
     return () => {
       setLoading(false);
       setData([]);
     };
-  }, []);
+  }, [time]);
 
   const chartData = [
     {
@@ -74,6 +74,13 @@ const NotificationsWeeklyCount = () => {
             return y?.toFixed(0);
           }
           return y;
+        },
+      },
+    },
+    chart: {
+      events: {
+        click: (event, chartContext, config) => {
+          console.log('clicked', config?.dataPointIndex+1);
         },
       },
     },

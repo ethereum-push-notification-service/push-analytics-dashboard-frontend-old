@@ -41,8 +41,8 @@ const ChannelsPerWeek = () => {
   useEffect(() => {
     (async () => {
       const response = await getChannelsPerWeek();
-
-      setData(convertDataValueToArray(response).slice(-7));
+      setData(convertDataValueToArray(response).slice(-time));
+      // console.log(convertDataValueToArray(response).slice(-7));
       setLoading(false);
     })();
 
@@ -50,7 +50,7 @@ const ChannelsPerWeek = () => {
       setLoading(false);
       setData([]);
     };
-  }, []);
+  }, [time]);
 
   const chartData = [
     {
@@ -75,6 +75,13 @@ const ChannelsPerWeek = () => {
             return y.toFixed(0);
           }
           return y;
+        },
+      },
+    },
+    chart: {
+      events: {
+        click: (event, chartContext, config) => {
+          console.log('clicked', config?.dataPointIndex+1);
         },
       },
     },

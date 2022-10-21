@@ -41,8 +41,7 @@ const SubscribersWeeklyCount = () => {
   useEffect(() => {
     (async () => {
       const response = await getSubscribersWeeklyCount();
-
-      setData(convertDataValueToArray(response).slice(-7));
+      setData(convertDataValueToArray(response).slice(-time));
       setLoading(false);
     })();
 
@@ -50,7 +49,7 @@ const SubscribersWeeklyCount = () => {
       setLoading(false);
       setData([]);
     };
-  }, []);
+  }, [time]);
 
   const chartData = [
     {
@@ -74,6 +73,15 @@ const SubscribersWeeklyCount = () => {
             return y.toFixed(0);
           }
           return y;
+        },
+      },
+    },
+    chart: {
+      events: {
+        click: (event, chartContext, config) => {
+          console.log('clicked', config?.dataPointIndex + 1);
+          // setTime(prev=>prev+config?.dataPointIndex + 1);
+          // setEnd(config?.dataPointIndex + 1)
         },
       },
     },
