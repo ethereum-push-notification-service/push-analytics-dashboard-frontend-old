@@ -80,7 +80,7 @@ const NotificationsWeeklyCount = () => {
     chart: {
       events: {
         click: (event, chartContext, config) => {
-          console.log('clicked', config?.dataPointIndex+1);
+          console.log('clicked', config?.dataPointIndex + 1);
         },
       },
     },

@@ -23,6 +23,9 @@ const SubscribersWeeklyCount = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [time, setTime] = useState(7);
+  // const [end, setEnd] = useState(0);
+  const [original, setOriginal] = useState([]);
+  const [lastIndex, setLastIndex] = useState(0);
 
   const dates = [...Array(time)].map((_, i) => {
     const d = new Date();
@@ -40,8 +43,13 @@ const SubscribersWeeklyCount = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await getSubscribersWeeklyCount();
-      setData(convertDataValueToArray(response).slice(-time));
+      // const response = await getSubscribersWeeklyCount();
+      const res = [3, 5, 8, 10, 15, 20, 25, 28, 32, 37, 39, 45, 50, 63];
+
+      setOriginal(res);
+      setLastIndex(res.length - 1);
+
+      setData(convertDataValueToArray(res).slice(-time));
       setLoading(false);
     })();
 
@@ -50,6 +58,12 @@ const SubscribersWeeklyCount = () => {
       setData([]);
     };
   }, [time]);
+
+  const redrawChart = (end) => {
+    const pos = data.length - (end + 1);
+    setLastIndex((prev) => prev - pos);
+    setData(convertDataValueToArray(original).slice(lastIndex - pos - time, lastIndex - pos));
+  };
 
   const chartData = [
     {
@@ -79,9 +93,9 @@ const SubscribersWeeklyCount = () => {
     chart: {
       events: {
         click: (event, chartContext, config) => {
-          console.log('clicked', config?.dataPointIndex + 1);
-          // setTime(prev=>prev+config?.dataPointIndex + 1);
-          // setEnd(config?.dataPointIndex + 1)
+          console.log('clicked', config?.dataPointIndex);
+          // setEnd(config?.dataPointIndex);
+          redrawChart(config?.dataPointIndex);
         },
       },
     },
@@ -90,6 +104,8 @@ const SubscribersWeeklyCount = () => {
   const handleChange = (event) => {
     setTime(parseInt(event.target.value, 10));
   };
+
+  console.log('data', data);
 
   return (
     <Grid item xs={12} md={6} lg={6}>
