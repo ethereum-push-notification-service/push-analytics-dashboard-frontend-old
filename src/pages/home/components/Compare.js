@@ -212,6 +212,22 @@ const Compare = () => {
           console.log('clicked', config?.dataPointIndex + 1);
         },
       },
+      zoom: {
+        enabled: true,
+        type: 'x',  
+        autoScaleYaxis: false,  
+        zoomedArea: {
+          fill: {
+            color: '#90CAF9',
+            opacity: 0.4
+          },
+          stroke: {
+            color: '#0D47A1',
+            opacity: 0.4,
+            width: 1
+          }
+        }
+    }
     },
   });
 
@@ -249,10 +265,10 @@ const Compare = () => {
                   name="row-radio-buttons-group"
                   onChange={handleChange}
                 >
-                  <FormControlLabel value="1" control={<Radio />} label="Last 1 week" />
-                  <FormControlLabel value="3" control={<Radio />} label="Last 3 week" />
-                  <FormControlLabel value="5" control={<Radio />} label="Last 5 week" />
-                  <FormControlLabel value="7" checked={time === 7} control={<Radio />} label="Last 7 week" />
+                  <FormControlLabel value={1} control={<Radio />} label="Last 1 Week" />
+                  <FormControlLabel value={4} control={<Radio />} label="Last 1 Month" />
+                  <FormControlLabel value={12} control={<Radio />} label="Last 3 Months" />
+                  <FormControlLabel value={53} checked={time === 53} control={<Radio />} label="Last 1 Year" />
                 </RadioGroup>
               </FormControl>
             </Box>
